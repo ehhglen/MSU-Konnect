@@ -12,7 +12,7 @@ with information about yourself and the rest will be taken care of!
 - Hari Shrestha 
 - Alanis Kitchen
 - Mehran Rahmed
-
+ 
 ## Travis CI
 The link(s) below shows a step-by-step process to configure Travis CI into the Angular application
 - https://medium.com/angular-in-depth/the-angular-devops-series-ct-ci-with-travis-ci-and-github-pages-3c02664f078
