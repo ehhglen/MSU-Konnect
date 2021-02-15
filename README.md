@@ -14,8 +14,10 @@ with information about yourself and the rest will be taken care of!
 - Mehran Rahmed
 
 ## Travis CI
-The link below shows a step-by-step process to configure Travis CI into the Angular application
-https://medium.com/faun/configuring-travis-ci-for-angular-application-34afee1715f
+The link(s) below shows a step-by-step process to configure Travis CI into the Angular application
+- https://medium.com/angular-in-depth/the-angular-devops-series-ct-ci-with-travis-ci-and-github-pages-3c02664f078
+
+- https://medium.com/faun/configuring-travis-ci-for-angular-application-34afee1715f
 
 ## Git and Branching
 The link below talks about branching and how to use it to make changes and then push to a 'development' branch 
