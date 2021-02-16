@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'MSU-Konnect';
+  messages = this.http.get<any[]>('http://localhost:4201');
+
+    constructor(private http: HttpClient) {}
+
+    post() {
+      this.http.post<any>('http://localhost:4201/users', {username: 'john', password: 'asdf'})
+      .subscribe(next => console.log(next));
+    }
 }
