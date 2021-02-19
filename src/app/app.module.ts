@@ -17,6 +17,7 @@ import { HomepageComponent } from './components/homepage/homepage.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 
@@ -28,6 +29,7 @@ import { NavigationComponent } from './components/navigation/navigation.componen
     LoginComponent,
     SignupComponent,
     NavigationComponent,
+    FooterComponent,
 
   ],
   imports: [

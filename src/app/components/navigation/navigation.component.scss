@@ -1,7 +1,9 @@
 mat-toolbar {
   display: flex;
-  justify-content: space-between;
   padding: 0 64px;
+  .img{
+
+  }
   a {
     text-decoration: none;
     &.active-link {
@@ -11,4 +13,5 @@ mat-toolbar {
       margin-left: 24px;
     }
   }
+  
 }

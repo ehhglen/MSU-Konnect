@@ -1,7 +1,10 @@
-<mat-toolbar color="accent">
+<mat-toolbar color="primary">
   <span>
+    <img src ="/MSU-Konnect/logo-MSU-Konnect.png" width="200" height="100" alt="MSU-Konnect Logo" style="justify-content: flex-start;">
+  </span>
+  <span style="justify-content: flex-end;">
     <a routerLink="/">
-      <span>Social Posts</span>
+      <span style="color:white">Home</span>
     </a>
   </span>
   <span>
@@ -15,7 +18,7 @@
       *ngIf="!isAuthenticated" routerLinkActive="active-link"
       routerLink="/login"
     >
-      <span>Login</span>
+      <span style="color:white; justify-content: flex-end;">Login</span>
     </a>
     <a
       *ngIf="isAuthenticated"
@@ -30,7 +33,7 @@
       routerLinkActive="active-link"
       routerLink="/signup"
     >
-      <span>Signup</span>
+      <span style="color:white; justify-content:flex-end">Signup</span>
     </a>
   </span>
 </mat-toolbar>
