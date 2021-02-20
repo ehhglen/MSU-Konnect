@@ -1,1 +1,15 @@
-<p>login works!</p>
+<form [formGroup]= "loginForm" (ngSubmit)= "login()" noValidate >
+
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input matInput placeholder="Ex. Sammy" formControlName="email">
+    </mat-form-field>
+  
+    <mat-form-field>
+      <mat-label>Password</mat-label>
+      <input matInput type = "password" placeholder="Ex. Sammy" formControlName="password">
+    </mat-form-field>
+    <button color="primary" [disabled]="!loginForm.valid" mat-raised-button type="submit">
+      <span>Log in</span></button>>
+  
+  </form>
