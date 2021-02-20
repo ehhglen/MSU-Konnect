@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
   template: `
     <app-navigation></app-navigation>
-    <app-homepage></app-homepage>
+    <router-outlet></router-outlet>>
     <app-footer></app-footer>
     `,
 })
