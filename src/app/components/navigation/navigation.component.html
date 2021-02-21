@@ -1,0 +1,48 @@
+<mat-toolbar color="primary">
+  <span>
+    <img src ="https://irp-cdn.multiscreensite.com/db2c4ca2/dms3rep/multi/logo.png" width="180" height="50" alt="MSU-Konnect Logo" style="justify-content: flex-start;">
+  </span>
+  <span style="justify-content: flex-end;">
+    <a routerLink="/">
+      <span style="color:white">Home</span>
+    </a>
+  </span>
+  <span>
+    <a
+      *ngIf="isAuthenticated"
+      routerLinkActive="active-link" routerLink="/posts"
+    >
+      <span>Posts</span>
+    </a>
+    <a
+      *ngIf="!isAuthenticated" routerLinkActive="active-link"
+      routerLink="/login"
+    >
+      <span style="color:white; justify-content: flex-end;">Login</span>
+    </a>
+    <a
+      *ngIf="isAuthenticated"
+      (click)="logout()"
+      routerLinkActive="active-link"
+      routerLink="/login"
+    >
+      <span>Logout</span>
+    </a>
+    <a
+      *ngIf="!isAuthenticated"
+      routerLinkActive="active-link"
+      routerLink="/signup"
+    >
+      <span style="color:white; justify-content:flex-end">Signup</span>
+    </a>
+
+    <a
+      *ngIf="!isAuthenticated"
+      routerLinkActive="active-link"
+      routerLink="/template"
+    >
+      <span style="color:white; justify-content:flex-end">Template</span>
+    </a>
+
+  </span>
+</mat-toolbar>

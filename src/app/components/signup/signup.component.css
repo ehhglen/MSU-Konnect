@@ -1,0 +1,6 @@
+.center{
+    display: flex;
+    justify-content: flex-start;
+    border-bottom-style:double; color:darkblue; size: 15px;;
+    margin-bottom: 65px;
+}
