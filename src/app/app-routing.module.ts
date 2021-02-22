@@ -7,13 +7,16 @@ import { HomepageComponent } from "./components/homepage/homepage.component";
 import { PostsComponent } from "./components/posts/posts.component";
 import { LoginComponent } from "./components/login/login.component";
 import { SignupComponent } from "./components/signup/signup.component";
+import { TemplateComponent } from './components/template/template.component';
 
 const routes: Routes = [
   { path: "", component: HomepageComponent },
   //{ path: "posts", component: PostsComponent, canActivate: [AuthGuard] },
   { path: "login", component: LoginComponent },
   { path: "signup", component: SignupComponent },
-  { path: "**", redirectTo: "" },
+  { path: "template", component: TemplateComponent },
+  // { path: "**", redirectTo: "" },
+
 ];
 
 @NgModule({

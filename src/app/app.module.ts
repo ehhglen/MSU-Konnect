@@ -20,6 +20,11 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { FooterComponent } from './components/footer/footer.component';
 
 
+import { TemplateComponent } from './components/template/template.component';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule, Routes } from '@angular/router';
+
+
 
 @NgModule({
   declarations: [
@@ -30,20 +35,24 @@ import { FooterComponent } from './components/footer/footer.component';
     SignupComponent,
     NavigationComponent,
     FooterComponent,
+    TemplateComponent,
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    //NoopAnimationsModule,
+    // NoopAnimationsModule,
     MatButtonModule,
     MatCardModule,
     MatIconModule,
     MatInputModule,
     MatListModule,
     MatToolbarModule,
-    //HttpClientModule,
+    HttpClientModule,
     ReactiveFormsModule,
+    RouterModule.forRoot([
+      { path: 'template', component: TemplateComponent },
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]
