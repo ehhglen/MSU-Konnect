@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgbCarousel, NgbSlideEvent, NgbSlideEventSource } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
   styleUrls: ['./homepage.component.css'],
-  template:`
+   template:`
   <section class="hero is-link">
   <div class="hero-body">
     <p class="title">
@@ -18,11 +19,17 @@ import { Component, OnInit } from '@angular/core';
   `
 
 })
+
+
+
 export class HomepageComponent implements OnInit {
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
   }
-
+  
 }
+
+
+

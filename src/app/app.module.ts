@@ -24,6 +24,7 @@ import { TemplateComponent } from './components/template/template.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -41,6 +42,7 @@ import { RouterModule, Routes } from '@angular/router';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    NgbModule,
     // NoopAnimationsModule,
     MatButtonModule,
     MatCardModule,
