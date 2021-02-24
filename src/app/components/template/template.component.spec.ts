@@ -1,25 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { TemplateComponent } from './template.component';
+import {HttpClientModule} from '@angular/common/http';
+
 
 describe('TemplateComponent', () => {
-  let component: TemplateComponent;
-  let fixture: ComponentFixture<TemplateComponent>;
-
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ TemplateComponent ]
-    })
-    .compileComponents();
+  beforeEach(() => TestBed.configureTestingModule({
+    imports: [HttpClientTestingModule],
+    providers: [TemplateComponent]
+  }));
+  it('should be created', () => {
+    const service: TemplateComponent = TestBed.inject(TemplateComponent);
+    expect(TemplateComponent).toBeTruthy();
   });
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(TemplateComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
 });
