@@ -1,8 +1,10 @@
-<div class= "center">
-<p style = "font-size: larger; color: black;"> New to MSU-Konnect? Sign up now to create your own personalized Website!</p>
+<div class = "bg">
+<div class= "header">
+<p style = "font-size: larger; color: black;"> New to MSU-Konnect? Sign up now to create your personalized Website!</p>
 </div>
-
-<form [formGroup]= "signupForm" (ngSubmit)= "signup()" noValidate >
+<div class= "form">
+<form  [formGroup]= "signupForm" (ngSubmit)= "signup()" noValidate >
+  
   <mat-form-field>
     <mat-label>First Name</mat-label>
     <input matInput placeholder="Ex. Sammy" formControlName="name">
@@ -23,5 +25,6 @@
   <button color="accent" [disabled]="!signupForm.valid" mat-raised-button type="submit">
     <span>Sign Up</span></button>
 
-
 </form>
+</div>
+</div>
