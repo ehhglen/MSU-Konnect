@@ -23,6 +23,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { TemplateComponent } from './components/template/template.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
+import { NgImageSliderModule } from 'ng-image-slider';
 
 
 
@@ -50,6 +51,7 @@ import { RouterModule, Routes } from '@angular/router';
     MatToolbarModule,
     HttpClientModule,
     ReactiveFormsModule,
+    NgImageSliderModule,
     RouterModule.forRoot([
       { path: 'template', component: TemplateComponent },
     ])

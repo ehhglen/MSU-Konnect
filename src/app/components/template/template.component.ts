@@ -12,10 +12,6 @@ export class TemplateComponent implements OnInit {
 
     constructor(private http: HttpClient) {}
 
-    post() {
-      this.http.post<any>('http://localhost:4201/template', {username: 'john', password: 'asdf'})
-      .subscribe(next => console.log(next));
-    }
 
   ngOnInit(): void {
   }
