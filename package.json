@@ -8,8 +8,7 @@
     "test": "concurrently \"ng test\" \"mocha\"",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "serve": "concurrently \"ng serve\" \"server/node_modules/.bin/ts-node-dev server/server.ts\""
-  },
+    "serve": "concurrently \"ng serve\" \"server\\node_modules\\.bin\\ts-node-dev server\\server.ts\""  },
   "private": true,
   "dependencies": {
     "@angular/animations": "~11.1.2",
