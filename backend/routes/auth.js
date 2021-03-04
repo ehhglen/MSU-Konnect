@@ -1,6 +1,6 @@
 const express = require('express');
 
-const { body } = require('express.validator');
+const { body } = require('express-validator');
 
 const router = express.Router()
 
@@ -16,12 +16,15 @@ router.post(
     .custom(async (email)=> {
       const user = await User.find(email);
       if (user[0].length > 0){
-        return Promise.reject('Email address already exist')
+        return Promise.reject('Email address already exist!')
       }
     })
     .normalizeEmail(),
-    body('password').trim().isLength({ min: 7 })
-  ], authController.signup
+    body('password').trim().isLength({ min: 7 }),
+  ],
+  authController.signup
 );
 
-module.exports = routers;
+router.post('/login',authController.login);
+
+module.exports= router;
