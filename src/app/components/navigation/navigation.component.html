@@ -1,8 +1,8 @@
 <mat-toolbar color="primary">
-  <span>
+  <span class = 'logo'>
     <img src ="https://irp-cdn.multiscreensite.com/db2c4ca2/dms3rep/multi/logo.png" width="180" height="50" alt="MSU-Konnect Logo" style="justify-content: flex-start;">
   </span>
-  <span style="justify-content: flex-end;">
+  <span class = 'home'>
     <a routerLink="/">
       <span style="color:white">Home</span>
     </a>
@@ -15,10 +15,11 @@
       <span>Posts</span>
     </a>
     <a
+      class = 'login'
       *ngIf="!isAuthenticated" routerLinkActive="active-link"
       routerLink="/login"
     >
-      <span style="color:white; justify-content: flex-end;">Login</span>
+      <span>Login</span>
     </a>
     <a
       *ngIf="isAuthenticated"
@@ -29,19 +30,20 @@
       <span>Logout</span>
     </a>
     <a
+      class = 'signup'
       *ngIf="!isAuthenticated"
       routerLinkActive="active-link"
       routerLink="/signup"
     >
-      <span style="color:white; justify-content:flex-end">Signup</span>
+      <span>Signup</span>
     </a>
 
+    <!-- this may be removed if not needed for signIn redirect -->
     <a
-      *ngIf="!isAuthenticated"
+      *ngIf="isAuthenticated"
       routerLinkActive="active-link"
       routerLink="/template"
     >
-      <span style="color:white; justify-content:flex-end">Template</span>
     </a>
 
   </span>
