@@ -23,6 +23,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { TemplateComponent } from './components/template/template.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
+import { SignupFormComponent } from './signup-form/signup-form.component';
 
 
 
@@ -36,6 +37,7 @@ import { RouterModule, Routes } from '@angular/router';
     NavigationComponent,
     FooterComponent,
     TemplateComponent,
+    SignupFormComponent,
 
   ],
   imports: [
