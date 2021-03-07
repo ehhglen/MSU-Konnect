@@ -52,8 +52,8 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## discrepencies backend
 - cd root
-1.npm install
+- npm install
+- cd backend
+- npm i express mysql2 body-parser express-validator bcryptjs jsonwebtoken
+- npm i -D nodemon
 
--cd backend
-2.npm i express mysql2 body-parser express-validator bcryptjs jsonwebtoken
-3.npm i -D nodemon
