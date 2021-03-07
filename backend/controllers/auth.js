@@ -59,7 +59,7 @@ exports.login = async (req, res, next) =>{
         userId: storedUser.id
       },
       'secretfortoken',
-      {expiresIn = '1h'}
+      // {expiresIn = '1h'}
     );
     res.status(200).json({token: token, userId: storedUser.id});
 
