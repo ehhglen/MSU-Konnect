@@ -8,21 +8,27 @@ mat-toolbar {
     }
     span {
       margin-left: 24px;
+
     }
   }
 }
 .logo{
   padding-left: 55px;
+
 }
 .home{
   padding-left: 875px;
+  position: inherit;
 }
 .login{
   color: white; 
   padding-left: 5px;
   padding-right: 5px;
+  position: inherit;
+ 
 }
 .signup{
   color:white;
 padding-left: 0px;
+position: inherit;
 }
