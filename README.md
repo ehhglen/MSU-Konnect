@@ -54,6 +54,6 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 - cd root
 1.npm install
 
-cd backend
+-cd backend
 2.npm i express mysql2 body-parser express-validator bcryptjs jsonwebtoken
 3.npm i -D nodemon
