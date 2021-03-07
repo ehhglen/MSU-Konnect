@@ -50,15 +50,22 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
-<<<<<<< HEAD
-
-
 =======
+## Discrepencies to run Angular and Express Concurrently
+- cd root
+- npm install
+- npm install --save-dev @angular-devkit/build-angular
+- cd server
+- npm i express mysql2 body-parser express-validator bcryptjs jsonwebtoken
+- CHANGE PACKAGE.JSON FILE PATH
+- (Windows) - change line 11 -> "serve": "concurrently \"ng serve\" \"server\\node_modules\\.bin\\ts-node-dev server\\server.ts\""
+- (Mac) - change line 11 -> "serve": "concurrently \"ng serve\" \"server/node_modules/.bin/ts-node-dev server/server.ts\""
+
 ## Discrepencies Backend
 - cd root
 - npm install
 - cd backend
 - npm i express mysql2 body-parser express-validator bcryptjs jsonwebtoken
 - npm i -D nodemon
->>>>>>> 8cf6b18f1639fbba70d22056a20ed434eb13ccee
+
 
