@@ -23,6 +23,9 @@ import { FooterComponent } from './components/footer/footer.component';
 import { TemplateComponent } from './components/template/template.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ImgsSliderComponent } from './imgs-slider/imgs-slider.component';
+import { SignupFormComponent } from './signup-form/signup-form.component';
 
 
 
@@ -36,6 +39,8 @@ import { RouterModule, Routes } from '@angular/router';
     NavigationComponent,
     FooterComponent,
     TemplateComponent,
+    ImgsSliderComponent,
+    SignupFormComponent,
 
   ],
   imports: [
@@ -52,7 +57,8 @@ import { RouterModule, Routes } from '@angular/router';
     ReactiveFormsModule,
     RouterModule.forRoot([
       { path: 'template', component: TemplateComponent },
-    ])
+    ]),
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

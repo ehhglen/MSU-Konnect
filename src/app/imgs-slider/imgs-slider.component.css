@@ -1,0 +1,13 @@
+.slider {
+    margin-left: auto;
+    margin-right: auto;
+    height: 300px;
+    width: 1000px;
+    position: center;
+}
+
+.img-fitter {
+    height: 300px;
+    width: 1000px;
+    object-fit: fill;
+}
