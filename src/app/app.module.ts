@@ -23,11 +23,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { TemplateComponent } from './components/template/template.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
-<<<<<<< HEAD
-=======
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ImgsSliderComponent } from './imgs-slider/imgs-slider.component';
->>>>>>> dev
 import { SignupFormComponent } from './signup-form/signup-form.component';
 
 
@@ -42,10 +39,7 @@ import { SignupFormComponent } from './signup-form/signup-form.component';
     NavigationComponent,
     FooterComponent,
     TemplateComponent,
-<<<<<<< HEAD
-=======
     ImgsSliderComponent,
->>>>>>> dev
     SignupFormComponent,
 
   ],
