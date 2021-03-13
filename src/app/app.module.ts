@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {ReactiveFormsModule} from "@angular/forms"
+import {FormsModule, ReactiveFormsModule} from "@angular/forms"
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -47,6 +47,7 @@ import { SignupFormComponent } from './signup-form/signup-form.component';
     BrowserModule,
     AppRoutingModule,
     // NoopAnimationsModule,
+    FormsModule,
     MatButtonModule,
     MatCardModule,
     MatIconModule,
@@ -58,6 +59,7 @@ import { SignupFormComponent } from './signup-form/signup-form.component';
     RouterModule.forRoot([
       { path: 'template', component: TemplateComponent },
     ]),
+    FormsModule,
     NgbModule
   ],
   providers: [],
