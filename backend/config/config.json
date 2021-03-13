@@ -1,0 +1,7 @@
+{
+  "host": "msu-konnect-database.cfsrkqwftzrl.us-east-2.rds.amazonaws.com",
+  "user" : "Admin_MSU",
+  "database": "MSUKonnectDatabase",
+  "password" : "SeniorProject!"
+}
+
