@@ -25,7 +25,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ImgsSliderComponent } from './imgs-slider/imgs-slider.component';
-import { SignupFormComponent } from './signup-form/signup-form.component';
 
 
 
@@ -40,8 +39,6 @@ import { SignupFormComponent } from './signup-form/signup-form.component';
     FooterComponent,
     TemplateComponent,
     ImgsSliderComponent,
-    SignupFormComponent,
-
   ],
   imports: [
     BrowserModule,
