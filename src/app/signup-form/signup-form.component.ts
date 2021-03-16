@@ -1,5 +1,8 @@
+import { OnInit } from '@angular/core';
+// https://ng-bootstrap.github.io/#/components/modal/examples
+import { TransitiveCompileNgModuleMetadata } from '@angular/compiler';
 import {Component} from '@angular/core';
-import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, ModalDismissReasons, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @Component({
@@ -13,7 +16,7 @@ export class SignupFormComponent {
   constructor(private modalService: NgbModal) {}
 
   open(content: any) {
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+    this.modalService.open(content, {scrollable: true, size:'xl', ariaLabelledBy:"formModal"} ).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
