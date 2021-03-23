@@ -8,7 +8,7 @@
     "test": "concurrently \"ng test\" \"mocha\"",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "serve": "concurrently \"ng serve\" \"server\\node_modules\\.bin\\ts-node-dev server\\server.ts\""
+    "serve": "concurrently \"ng serve\" \"server/node_modules/.bin/ts-node-dev server/server.ts\""
   },
   "private": true,
   "dependencies": {
@@ -36,6 +36,7 @@
     "@angular/cli": "~11.1.4",
     "@angular/compiler-cli": "~11.1.2",
     "@types/jasmine": "~3.6.0",
+    "@types/jquery": "^3.5.5",
     "@types/node": "^12.11.1",
     "codelyzer": "^6.0.0",
     "jasmine-core": "~3.6.0",

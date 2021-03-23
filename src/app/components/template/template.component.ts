@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
+
 @Component({
   selector: 'app-template',
   templateUrl: './template.component.html',
@@ -12,9 +13,16 @@ export class TemplateComponent implements OnInit {
 
     constructor(private http: HttpClient) {}
 
-    post() {
-      this.http.post<any>('http://localhost:4201/template', {username: 'john', password: 'asdf'})
+ 
+
+    onItemClick(template_id:any)
+    {
+
+      
+      this.http.post<any[]>('http://localhost:4201/template' , {template_id:template_id})
       .subscribe(next => console.log(next));
+      
+
     }
 
   ngOnInit(): void {
