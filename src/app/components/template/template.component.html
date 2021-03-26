@@ -1,3 +1,4 @@
+
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
       <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -6,6 +7,108 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
     <body style="background:#14558a;">
+
+
+
+<!-- signup form modal --> 
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form class="form-size" [formGroup]= "mainfrom" novalidate>
+
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputFirstName">Full Name</label>
+          <input type="firstName" class="form-control" id="inputFirstName" placeholder="First Name Last Name" formControlName="name" [(ngModel)]="name">
+        </div> 
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputEmail">Email</label>
+          <input type="email" class="form-control" id="inputEmail" placeholder="Email" formControlName="email" [(ngModel)]="email">
+        </div>  
+        <div class="form-group col-md-6">
+          <label for="inputPhoneNumber">Phone Number</label>
+          <input type="number" class="form-control" id="inputPhoneNumber" placeholder="e.g: 720-899-88899" >
+        </div> 
+      </div>
+
+      <div class="form-group">
+        <label for="inputAboutMeSmall">About Me: breif Introduction</label>
+        <textarea type="text" class="form-control" id="inputAboutMeSmall" placeholder="Type a breif introduction to yourself here." ></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="inputAboutMe">About Me</label>
+        <textarea type="text" class="form-control" id="inputAboutMe" placeholder="Type a more in depth introduction to yourself here." ></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="inputOtherPassions">Other Passions</label>
+        <textarea type="text" class="form-control" id="inputOtherPassions" placeholder="Give a description of passions related/unrelated to your major or career." ></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="inputSkillSet">Skill Set</label>
+        <textarea type="text" class="form-control" id="inputSkillSet" placeholder="Describe your overall skillset." ></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="inputSkill01">Skill 1</label>
+        <textarea type="text" class="form-control" id="inputSkill01" placeholder="Choose a skill and describe it here." ></textarea>
+      </div>
+      <div class="form-group">
+        <label for="inputSkill02">Skill 2</label>
+        <textarea type="text" class="form-control" id="inputSkill02" placeholder="Choose one more skill and describe it here." ></textarea>
+      </div>
+
+      <div class="form-row">
+
+        <div class="form-group col-md-4">
+          <label for="inputState">Class Schedule-Day</label>
+          <select id="inputState" class="form-control" >
+            <option selected>Select the days...</option>
+            <option>Mon - Friday</option>
+            <option>Mon - Thursday</option>
+            <option>Monday and Tuesday</option>
+            <option>Wedesday and Thursday</option>
+          </select>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="inputState">Class Schedule-Time</label>
+          <select id="inputState" class="form-control" >
+            <option selected>Select the times...</option>
+            <option>6am to 12pm</option>
+            <option>6am to 5pm</option>
+            <option>10 am - 12pm</option>
+            <option>12pm to 8pm</option>
+            <option>10am to 8pm</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="gridCheck" >
+          <label class="form-check-label" for="gridCheck">
+            Do you authorize the use of  your information to create website?
+          </label>
+        </div>
+      </div>
+    </form>
+  
+  </div>
+  <div class="modal-footer">
+    <button type="button" id="btn" class="btn btn-outline-dark"  (click)="modal.close('Save')" > Create my Website </button>
+  </div>
+</ng-template>
+<hr>
+<!-- sign up form end -->
 <div class="row top" style="background:#d41540">
   <div class="col s12 center-align">
       <h4 class="" style="color:#ffffff; font-size: 24px;">Choose a template to start from</h4>
@@ -17,7 +120,8 @@
   <div *ngFor="let message of messages | async">
     <div *ngIf="message.base_site_name === 'b9997373'">
        <!-- First one -->
-    <div class="col s12 m6 l4">
+       <!-- col s12 m6 l4  -->
+    <div class="col-sm-">
       <div class="card">
         <div class="card-image">
           <img class="materialboxed" src="{{message.thumbnail_url}}">
@@ -28,14 +132,14 @@
           <a href="{{message.preview_url}}" target="_blank">Preview Template</a>
         </div>
         <div class="card-action">
-          <a  href="#" class="start-building">Start with this template</a>
+          <a class="start-building" (click)="open(content, '1215439')">Start with this template</a>
         </div>
       </div>
     </div>
     </div>
     <!-- second one -->
     <div *ngIf="message.base_site_name === '6d2ca52d'">
-    <div class="col s12 m6 l4">
+    <div class="col-s12-m6-l4">
       <div class="card">
         <div class="card-image">
           <img class="materialboxed" src="{{message.thumbnail_url}}">
@@ -46,14 +150,14 @@
           <a href="{{message.preview_url}}" target="_blank">Preview Template</a>
         </div>
         <div class="card-action">
-          <a  href="#" class="start-building">Start with this template</a>
+          <a  class="start-building" (click)="open(content, '1215442')">Start with this template</a>
         </div>
       </div>
     </div>
     </div>
     <!-- Thrid One-->
     <div *ngIf="message.base_site_name === '13f7ccab'">
-      <div class="col s12 m6 l4">
+      <div class="col-s12-m6-l4">
         <div class="card">
           <div class="card-image">
             <img class="materialboxed" src="{{message.thumbnail_url}}">
@@ -64,14 +168,14 @@
             <a href="{{message.preview_url}}" target="_blank">Preview Template</a>
           </div>
           <div class="card-action">
-            <a  href="#" class="start-building">Start with this template</a>
+            <a class="start-building" (click)="open(content, '1215444')">Start with this template</a>
           </div>
         </div>
       </div>
       </div>
       <!-- Fourth One-->
     <div *ngIf="message.base_site_name === 'e64cfa2f'">
-      <div class="col s12 m6 l4">
+      <div class="col-s12-m6-l4">
         <div class="card">
           <div class="card-image">
             <img class="materialboxed" src="{{message.thumbnail_url}}">
@@ -82,14 +186,14 @@
             <a href="{{message.preview_url}}" target="_blank">Preview Template</a>
           </div>
           <div class="card-action">
-            <a  href="#" class="start-building">Start with this template</a>
+            <a   class="start-building"  (click)="open(content, '1215447')">Start with this template</a>
           </div>
         </div>
       </div>
       </div>
         <!-- Fifth One-->
     <div *ngIf="message.base_site_name === '9f7b8297'">
-      <div class="col s12 m6 l4">
+      <div class="col-s12-m6-l4">
         <div class="card">
           <div class="card-image">
             <img class="materialboxed" src="{{message.thumbnail_url}}">
@@ -100,13 +204,13 @@
             <a href="{{message.preview_url}}" target="_blank">Preview Template</a>
           </div>
           <div class="card-action">
-            <a  href="#" class="start-building">Start with this template</a>
+            <a class="start-building" (click)="open(content, '1215448')">Start with this template</a>
           </div>
         </div>
       </div>
       </div>
       <div *ngIf="message.base_site_name === 'df33db14'">
-        <div class="col s12 m6 l4">
+        <div class="col-s12-m6-l4">
           <div class="card">
             <div class="card-image">
               <img class="materialboxed" src="{{message.thumbnail_url}}">
@@ -117,7 +221,7 @@
               <a href="{{message.preview_url}}" target="_blank">Preview Template</a>
             </div>
             <div class="card-action">
-              <a  href="#" class="start-building">Start with this template</a>
+              <a   class="start-building" (click)="open(content, '1215451')" >Start with this template</a>
             </div>
           </div>
         </div>
