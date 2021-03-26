@@ -108,23 +108,8 @@ export class TemplateComponent implements OnInit {
           this.http.post<any[]>('http://localhost:4201/collection' , movies)
           .subscribe(next => console.log(next));
 
-<<<<<<< HEAD
- 
-
-    onItemClick(template_id:any)
-    {
-
-      
-      this.http.post<any[]>('http://localhost:4201/template' , {template_id:template_id})
-      .subscribe(next => console.log(next));
-      //wait for response and then call another post method
-      //how to save the next and pass it to the second function
-
-    }
-=======
         }
         else{
->>>>>>> dev
 
           console.log('fail');
 
