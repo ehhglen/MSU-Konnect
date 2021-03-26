@@ -29,30 +29,6 @@ app.use(express.json());
 
 app.use('/', routes);
 
-// app.get('/', function(req, res, next) {
-//     request({
-//       uri: 'https://api.duda.co/api/sites/multiscreen/templates',
-//       'headers': {
-//         'Authorization': 'Basic ZmJiYjBkOGM6bEZydkNsQzBMTFB2',
-//         'Content-Type': 'application/json'
-//       }
-//     }).pipe(res);
-//     //res.send(res).json;
-// });
-
-
-// app.post('/template', function(req, res, next) {
-//   request({
-//     uri: 'https://api.duda.co/api/sites/multiscreen/create',
-//     'headers': {
-//       'Authorization': 'Basic ZmJiYjBkOGM6bEZydkNsQzBMTFB2',
-//       'Content-Type': 'application/json'
-//     },
-//     body : JSON.stringify({"template_id":"1215448"})
-//   }).pipe(res);
-
-// });
-
 app.listen(4201, '127.0.0.1'), function() {
     console.log('Server now listening on 4201');
 }
