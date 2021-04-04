@@ -18,11 +18,12 @@ export class TemplateComponent implements OnInit {
     ngOnInit(): void {
     }
  
-    open(content: any) {
-      this.modalService.open(content, {scrollable: true, size:'xl', ariaLabelledBy:"formModal"} ).result.then((result) => {
-        this.closeResult = `Closed with: ${result}`;
-      });
-  }
+  //   open(content: any) {
+  //     this.modalService.open(content, {scrollable: true, size:'xl', ariaLabelledBy:"formModal"} ).result.then((result) => {
+  //       this.closeResult = `Closed with: ${result}`;
+  //     });
+  // }
+  
   // post() {
     //   this.http.post<any>('http://localhost:4201/template', {username: 'john', password: 'asdf'})
     //   .subscribe(next => console.log(next));
