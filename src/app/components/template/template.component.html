@@ -1,47 +1,71 @@
 <!-- signup form modal --> 
 <ng-template #content let-modal>
   <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+    <h4 class="modal-title" id="modal-basic-title">Create Website form</h4>
     <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
+
   <div class="modal-body">
-    <form class="form-size">
 
-      <div class="form-row">
-        <div class="form-group col-md-6">
-          <label for="inputFirstName">Full Name</label>
-          <input type="firstName" class="form-control" id="inputFirstName" placeholder="First Name Last Name">
-        </div> 
-      </div>
+    <form #userForm="ngForm" (ngSubmit)="userForm.form.valid && onSubmit(userForm)">
 
-      <div class="form-row">
-        <div class="form-group col-md-6">
-          <label for="inputEmail">Email</label>
-          <input type="email" class="form-control" id="inputEmail" placeholder="Email">
-        </div>  
-        <div class="form-group col-md-6">
-          <label for="inputPhoneNumber">Phone Number</label>
-          <input type="number" class="form-control" id="inputPhoneNumber" placeholder="e.g: 720-899-88899">
-        </div> 
+      <div class="form-group">
+        <label for="fullName">Full Name</label>
+        <input type="text" class="form-control" id= "fullName" name = "fullName" [(ngModel)]="model.fullName" placeholder="First Name Last Name" #name="ngModel"
+        [ngClass]= "{ 'is-invalid': userForm.submitted && name.invalid }" required>
+        <div class = "invalid-feedback" *ngIf="userForm.submitted && name.invalid">
+        <p *ngIf="name.errors?.required">Name is required</p>
+        </div>
       </div>
 
       <div class="form-group">
-        <label for="inputAboutMeSmall">About Me: breif Introduction</label>
-        <textarea type="text" class="form-control" id="inputAboutMeSmall" placeholder="Type a breif introduction to yourself here."></textarea>
+        <label for="email">Email</label>
+        <input type="email" class="form-control" name="email" placeholder="Email" [(ngModel)]="model.email" #email="ngModel"
+        [ngClass]= "{ 'is-invalid': userForm.submitted && email.invalid }" required>  
+        <div class = "invalid-feedback" *ngIf="userForm.submitted && email.invalid">
+          <p *ngIf="email.errors?.required">Email is required</p>
+          </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="phoneNumber">Phone Number</label>
+        <input type="number" class="form-control" name="phoneNumber" placeholder="e.g: 720-899-88899" [(ngModel)]="model.phoneNumber" #phoneNumber="ngModel"
+        [ngClass]= "{ 'is-invalid': userForm.submitted && phoneNumber.invalid }"  required>
+        <div class = "invalid-feedback" *ngIf="userForm.submitted && phoneNumber.invalid">
+          <p *ngIf="phoneNumber.errors?.required">Phone number is required</p>
+          </div>
       </div>
 
       <div class="form-group">
-        <label for="inputAboutMe">About Me</label>
-        <textarea type="text" class="form-control" id="inputAboutMe" placeholder="Type a more in depth introduction to yourself here."></textarea>
+        <label for="aboutMeS">About Me: breif Introduction</label>
+        <textarea type="text" class="form-control" name="aboutMeS" placeholder="Type a breif introduction to yourself here." [(ngModel)]="model.aboutMeS" #aboutMeS="ngModel"
+        [ngClass]= "{ 'is-invalid': userForm.submitted && aboutMeS.invalid }"   required></textarea>
+        <div class = "invalid-feedback" *ngIf="userForm.submitted && aboutMeS.invalid">
+          <p *ngIf="aboutMeS.errors?.required">Breif about me is required</p>
+          </div>
+      </div>
+      
+
+      <div class="form-group">
+        <label for="aboutMe">About Me</label>
+        <textarea type="text" class="form-control" name="aboutMe" placeholder="Type a more in depth introduction to yourself here." [(ngModel)]="model.aboutMe" #aboutMe="ngModel"
+        [ngClass]= "{ 'is-invalid': userForm.submitted && aboutMe.invalid }"  required>></textarea>
+        <div class = "invalid-feedback" *ngIf="userForm.submitted && aboutMe.invalid">
+          <p *ngIf="aboutMe.errors?.required">Breif about me is required</p>
+          </div>
       </div>
 
       <div class="form-group">
-        <label for="inputOtherPassions">Other Passions</label>
-        <textarea type="text" class="form-control" id="inputOtherPassions" placeholder="Give a description of passions related/unrelated to your major or career."></textarea>
+        <label for="otherPassions">Other Passions</label>
+        <textarea type="text" class="form-control" name="otherPassions" placeholder="Give a description of passions related/unrelated to your major or career." [(ngModel)]="model.otherPassions" #otherPassions="ngModel"
+        [ngClass]= "{ 'is-invalid': userForm.submitted && otherPassions.invalid }"  required>></textarea>
+        <div class = "invalid-feedback" *ngIf="userForm.submitted && otherPassions.invalid">
+          <p *ngIf="otherPassions.errors?.required">Description of other passions is required</p>
+          </div>
       </div>
-
+<!-- 
       <div class="form-group">
         <label for="inputSkillSet">Skill Set</label>
         <textarea type="text" class="form-control" id="inputSkillSet" placeholder="Describe your overall skillset."></textarea>
@@ -56,9 +80,7 @@
         <textarea type="text" class="form-control" id="inputSkill02" placeholder="Choose one more skill and describe it here."></textarea>
       </div>
 
-      <div class="form-row">
-
-        <div class="form-group col-md-4">
+      <div class="form-group">
           <label for="inputState">Class Schedule-Day</label>
           <select id="inputState" class="form-control">
             <option selected>Select the days...</option>
@@ -68,7 +90,8 @@
             <option>Wedesday and Thursday</option>
           </select>
         </div>
-        <div class="form-group col-md-4">
+
+        <div class="form-group">
           <label for="inputState">Class Schedule-Time</label>
           <select id="inputState" class="form-control">
             <option selected>Select the times...</option>
@@ -79,7 +102,7 @@
             <option>10am to 8pm</option>
           </select>
         </div>
-      </div>
+
       <div class="form-group">
         <div class="form-check">
           <input class="form-check-input" type="checkbox" id="gridCheck">
@@ -87,12 +110,15 @@
             Do you authorize the use of  your information to create website?
           </label>
         </div>
+      </div> -->
+      <div class="form-group">
+        <button class="btn btn-danger btn-block">Create my Website</button>
       </div>
     </form>
-  
+    <!-- end of form -->
   </div>
+
   <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Create my Website</button>
   </div>
 </ng-template>
 <hr>
@@ -107,124 +133,125 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
     <body style="background:#14558a;">
-<div class="row top" style="background:#d41540">
-  <div class="col s12 center-align">
-      <h4 class="" style="color:#ffffff; font-size: 24px;">Choose a template to start from</h4>
-      <p style="color:#ffffff; font-size: 24px;">Each template is natively responsive and can be fully customized to your liking.</p>
-  </div>
-</div>
-<div class="container">
-  <div class="row">
-  <div *ngFor="let message of messages | async">
-    <div *ngIf="message.base_site_name === 'b9997373'">
-       <!-- First one -->
-    <div class="col s12 m6 l4">
-      <div class="card">
-        <div class="card-image">
-          <img class="materialboxed" src="{{message.thumbnail_url}}">
-          <a class="btn-floating tooltipped halfway-fab waves-effect waves-light red start-building" data-tooltip="Start editing this template"><i class="material-icons">mode_edit</i></a>
-        </div>
-        <div class="card-content">
-          <span class="card-title grey-text text-darken-4 truncate">{{message.template_name}}</span>
-          <a href="{{message.preview_url}}" target="_blank">Preview Template</a>
-        </div>
-        <div class="card-action">
-          <a  class="start-building" (click)="open(content)">Start with this template</a>
+      <div class="row top" style="background:#d41540">
+        <div class="col s12 center-align">
+            <h4 class="" style="color:#ffffff; font-size: 24px;">Choose a template to start from</h4>
+            <p style="color:#ffffff; font-size: 24px;">Each template is natively responsive and can be fully customized to your liking.</p>
         </div>
       </div>
-    </div>
-    </div>
-    <!-- second one -->
-    <div *ngIf="message.base_site_name === '6d2ca52d'">
-    <div class="col s12 m6 l4">
-      <div class="card">
-        <div class="card-image">
-          <img class="materialboxed" src="{{message.thumbnail_url}}">
-          <a class="btn-floating tooltipped halfway-fab waves-effect waves-light red start-building" data-tooltip="Start editing this template"><i class="material-icons">mode_edit</i></a>
-        </div>
-        <div class="card-content">
-          <span class="card-title grey-text text-darken-4 truncate">{{message.template_name}}</span>
-          <a href="{{message.preview_url}}" target="_blank">Preview Template</a>
-        </div>
-        <div class="card-action">
-          <a   class="start-building" (click)="open(content)">Start with this template</a>
-        </div>
-      </div>
-    </div>
-    </div>
-    <!-- Thrid One-->
-    <div *ngIf="message.base_site_name === '13f7ccab'">
-      <div class="col s12 m6 l4">
-        <div class="card">
-          <div class="card-image">
-            <img class="materialboxed" src="{{message.thumbnail_url}}">
-            <a class="btn-floating tooltipped halfway-fab waves-effect waves-light red start-building" data-tooltip="Start editing this template"><i class="material-icons">mode_edit</i></a>
-          </div>
-          <div class="card-content">
-            <span class="card-title grey-text text-darken-4 truncate">{{message.template_name}}</span>
-            <a href="{{message.preview_url}}" target="_blank">Preview Template</a>
-          </div>
-          <div class="card-action">
-            <a   class="start-building" (click)="open(content)">Start with this template</a>
-          </div>
-        </div>
-      </div>
-      </div>
-      <!-- Fourth One-->
-    <div *ngIf="message.base_site_name === 'e64cfa2f'">
-      <div class="col s12 m6 l4">
-        <div class="card">
-          <div class="card-image">
-            <img class="materialboxed" src="{{message.thumbnail_url}}">
-            <a class="btn-floating tooltipped halfway-fab waves-effect waves-light red start-building" data-tooltip="Start editing this template"><i class="material-icons">mode_edit</i></a>
-          </div>
-          <div class="card-content">
-            <span class="card-title grey-text text-darken-4 truncate">{{message.template_name}}</span>
-            <a href="{{message.preview_url}}" target="_blank">Preview Template</a>
-          </div>
-          <div class="card-action">
-            <a  class="start-building" (click)="open(content)">Start with this template</a>
-          </div>
-        </div>
-      </div>
-      </div>
-        <!-- Fifth One-->
-    <div *ngIf="message.base_site_name === '9f7b8297'">
-      <div class="col s12 m6 l4">
-        <div class="card">
-          <div class="card-image">
-            <img class="materialboxed" src="{{message.thumbnail_url}}">
-            <a class="btn-floating tooltipped halfway-fab waves-effect waves-light red start-building" data-tooltip="Start editing this template"><i class="material-icons">mode_edit</i></a>
-          </div>
-          <div class="card-content">
-            <span class="card-title grey-text text-darken-4 truncate">{{message.template_name}}</span>
-            <a href="{{message.preview_url}}" target="_blank">Preview Template</a>
-          </div>
-          <div class="card-action">
-            <a  class="start-building" (click)="open(content)">Start with this template</a>
-          </div>
-        </div>
-      </div>
-      </div>
-      <div *ngIf="message.base_site_name === 'df33db14'">
-        <div class="col s12 m6 l4">
-          <div class="card">
-            <div class="card-image">
-              <img class="materialboxed" src="{{message.thumbnail_url}}">
-              <a class="btn-floating tooltipped halfway-fab waves-effect waves-light red start-building" data-tooltip="Start editing this template"><i class="material-icons">mode_edit</i></a>
-            </div>
-            <div class="card-content">
-              <span class="card-title grey-text text-darken-4 truncate">{{message.template_name}}</span>
-              <a href="{{message.preview_url}}" target="_blank">Preview Template</a>
-            </div>
-            <div class="card-action">
-              <a class="start-building" (click)="open(content)">Start with this template</a>
+      <div class="container">
+        <div class="row">
+        <div *ngFor="let message of messages | async">
+          <div *ngIf="message.base_site_name === 'b9997373'">
+             <!-- First one -->
+             <!-- col s12 m6 l4  -->
+          <div class="col-md-6">
+            <div class="card">
+              <div class="card-image">
+                <img class="materialboxed" src="{{message.thumbnail_url}}">
+                <a class="btn-floating tooltipped halfway-fab waves-effect waves-light red start-building" data-tooltip="Start editing this template"><i class="material-icons">mode_edit</i></a>
+              </div>
+              <div class="card-content">
+                <span class="card-title grey-text text-darken-4 truncate">{{message.template_name}}</span>
+                <a href="{{message.preview_url}}" target="_blank">Preview Template</a>
+              </div>
+              <div class="card-action">
+                <a class="start-building" (click)="open(content, '1215439')">Start with this template</a>
+              </div>
             </div>
           </div>
+          </div>
+          <!-- second one -->
+          <div *ngIf="message.base_site_name === '6d2ca52d'">
+          <div class="col-md-6">
+            <div class="card">
+              <div class="card-image">
+                <img class="materialboxed" src="{{message.thumbnail_url}}">
+                <a class="btn-floating tooltipped halfway-fab waves-effect waves-light red start-building" data-tooltip="Start editing this template"><i class="material-icons">mode_edit</i></a>
+              </div>
+              <div class="card-content">
+                <span class="card-title grey-text text-darken-4 truncate">{{message.template_name}}</span>
+                <a href="{{message.preview_url}}" target="_blank">Preview Template</a>
+              </div>
+              <div class="card-action">
+                <a  class="start-building" (click)="open(content, '1215442')">Start with this template</a>
+              </div>
+            </div>
+          </div>
+          </div>
+          <!-- Thrid One-->
+          <div *ngIf="message.base_site_name === '13f7ccab'">
+            <div class="col-sm">
+              <div class="card">
+                <div class="card-image">
+                  <img class="materialboxed" src="{{message.thumbnail_url}}">
+                  <a class="btn-floating tooltipped halfway-fab waves-effect waves-light red start-building" data-tooltip="Start editing this template"><i class="material-icons">mode_edit</i></a>
+                </div>
+                <div class="card-content">
+                  <span class="card-title grey-text text-darken-4 truncate">{{message.template_name}}</span>
+                  <a href="{{message.preview_url}}" target="_blank">Preview Template</a>
+                </div>
+                <div class="card-action">
+                  <a class="start-building" (click)="open(content, '1215444')">Start with this template</a>
+                </div>
+              </div>
+            </div>
+            </div>
+            <!-- Fourth One-->
+          <div *ngIf="message.base_site_name === 'e64cfa2f'">
+            <div class="col-sm">
+              <div class="card">
+                <div class="card-image">
+                  <img class="materialboxed" src="{{message.thumbnail_url}}">
+                  <a class="btn-floating tooltipped halfway-fab waves-effect waves-light red start-building" data-tooltip="Start editing this template"><i class="material-icons">mode_edit</i></a>
+                </div>
+                <div class="card-content">
+                  <span class="card-title grey-text text-darken-4 truncate">{{message.template_name}}</span>
+                  <a href="{{message.preview_url}}" target="_blank">Preview Template</a>
+                </div>
+                <div class="card-action">
+                  <a   class="start-building"  (click)="open(content, '1215447')">Start with this template</a>
+                </div>
+              </div>
+            </div>
+            </div>
+              <!-- Fifth One-->
+          <div *ngIf="message.base_site_name === '9f7b8297'">
+            <div class="col-sm">
+              <div class="card">
+                <div class="card-image">
+                  <img class="materialboxed" src="{{message.thumbnail_url}}">
+                  <a class="btn-floating tooltipped halfway-fab waves-effect waves-light red start-building" data-tooltip="Start editing this template"><i class="material-icons">mode_edit</i></a>
+                </div>
+                <div class="card-content">
+                  <span class="card-title grey-text text-darken-4 truncate">{{message.template_name}}</span>
+                  <a href="{{message.preview_url}}" target="_blank">Preview Template</a>
+                </div>
+                <div class="card-action">
+                  <a class="start-building" (click)="open(content, '1215448')">Start with this template</a>
+                </div>
+              </div>
+            </div>
+            </div>
+            <div *ngIf="message.base_site_name === 'df33db14'">
+              <div class="col-sm">
+                <div class="card">
+                  <div class="card-image">
+                    <img class="materialboxed" src="{{message.thumbnail_url}}">
+                    <a class="btn-floating tooltipped halfway-fab waves-effect waves-light red start-building" data-tooltip="Start editing this template"><i class="material-icons">mode_edit</i></a>
+                  </div>
+                  <div class="card-content">
+                    <span class="card-title grey-text text-darken-4 truncate">{{message.template_name}}</span>
+                    <a href="{{message.preview_url}}" target="_blank">Preview Template</a>
+                  </div>
+                  <div class="card-action">
+                    <a   class="start-building" (click)="open(content, '1215451')" >Start with this template</a>
+                  </div>
+                </div>
+              </div>
+              </div>
+          <!--END-->
         </div>
         </div>
-    <!--END-->
-  </div>
-  </div>
-</div>
+      </div>
 </body>
