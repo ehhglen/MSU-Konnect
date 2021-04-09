@@ -26,6 +26,7 @@ export class User {
   public skill02Pic!: string;
   public aboutMePic!: string;
   public passionsPic!: string;
+  public gallery!: String;
 }
 @Component({
   selector: 'app-template',
