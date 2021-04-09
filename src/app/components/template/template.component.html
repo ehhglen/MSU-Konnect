@@ -13,7 +13,7 @@
 
       <div class="form-group">
         <label for="fullName">Full Name</label>
-        <input type="text" class="form-control" id= "fullName" name = "fullName" [(ngModel)]="model.fullName" placeholder="First Name Last Name" #name="ngModel"
+        <input type="text" class="form-control"  name = "fullName" [(ngModel)]="model.fullName" placeholder="First Name Last Name" #name="ngModel"
         [ngClass]= "{ 'is-invalid': userForm.submitted && name.invalid }" required>
         <div class = "invalid-feedback" *ngIf="userForm.submitted && name.invalid">
         <p *ngIf="name.errors?.required">Name is required</p>
@@ -26,15 +26,6 @@
         [ngClass]= "{ 'is-invalid': userForm.submitted && email.invalid }" required>  
         <div class = "invalid-feedback" *ngIf="userForm.submitted && email.invalid">
           <p *ngIf="email.errors?.required">Email is required</p>
-          </div>
-      </div>
-      
-      <div class="form-group">
-        <label for="phoneNumber">Phone Number</label>
-        <input type="number" class="form-control" name="phoneNumber" placeholder="e.g: 720-899-88899" [(ngModel)]="model.phoneNumber" #phoneNumber="ngModel"
-        [ngClass]= "{ 'is-invalid': userForm.submitted && phoneNumber.invalid }"  required>
-        <div class = "invalid-feedback" *ngIf="userForm.submitted && phoneNumber.invalid">
-          <p *ngIf="phoneNumber.errors?.required">Phone number is required</p>
           </div>
       </div>
 
@@ -53,36 +44,108 @@
         <textarea type="text" class="form-control" name="aboutMe" placeholder="Type a more in depth introduction to yourself here." [(ngModel)]="model.aboutMe" #aboutMe="ngModel"
         [ngClass]= "{ 'is-invalid': userForm.submitted && aboutMe.invalid }"  required>></textarea>
         <div class = "invalid-feedback" *ngIf="userForm.submitted && aboutMe.invalid">
-          <p *ngIf="aboutMe.errors?.required">Breif about me is required</p>
+          <p *ngIf="aboutMe.errors?.required">About me is required</p>
           </div>
       </div>
 
       <div class="form-group">
+        <label for="aboutMePic">About Me Picture (link) </label>
+        <input type="text" class="form-control"  name = "aboutMePic" [(ngModel)]="model.aboutMePic" placeholder="Please Provide an image link" #aboutMePic="ngModel"
+        [ngClass]= "{ 'is-invalid': userForm.submitted && aboutMePic.invalid }" required>
+        <div class = "invalid-feedback" *ngIf="userForm.submitted && aboutMePic.invalid">
+        <p *ngIf="aboutMePic.errors?.required">Please Provide an image link</p>
+        </div>
+      </div>
+      
+      <div class="form-group">
         <label for="otherPassions">Other Passions</label>
         <textarea type="text" class="form-control" name="otherPassions" placeholder="Give a description of passions related/unrelated to your major or career." [(ngModel)]="model.otherPassions" #otherPassions="ngModel"
-        [ngClass]= "{ 'is-invalid': userForm.submitted && otherPassions.invalid }"  required>></textarea>
+        [ngClass]= "{ 'is-invalid': userForm.submitted && otherPassions.invalid }"  required></textarea>
         <div class = "invalid-feedback" *ngIf="userForm.submitted && otherPassions.invalid">
           <p *ngIf="otherPassions.errors?.required">Description of other passions is required</p>
           </div>
       </div>
-<!-- 
+
       <div class="form-group">
-        <label for="inputSkillSet">Skill Set</label>
-        <textarea type="text" class="form-control" id="inputSkillSet" placeholder="Describe your overall skillset."></textarea>
+        <label for="passionsPic">Other Passions Picture (link) </label>
+        <input type="text" class="form-control"  name = "passionsPic" [(ngModel)]="model.passionsPic" placeholder="Please Provide an image link" #passionsPic="ngModel"
+        [ngClass]= "{ 'is-invalid': userForm.submitted && passionsPic.invalid }" required>
+        <div class = "invalid-feedback" *ngIf="userForm.submitted && passionsPic.invalid">
+        <p *ngIf="passionsPic.errors?.required">Please Provide an image link</p>
+        </div>
       </div>
 
       <div class="form-group">
-        <label for="inputSkill01">Skill 1</label>
-        <textarea type="text" class="form-control" id="inputSkill01" placeholder="Choose a skill and describe it here."></textarea>
-      </div>
-      <div class="form-group">
-        <label for="inputSkill02">Skill 2</label>
-        <textarea type="text" class="form-control" id="inputSkill02" placeholder="Choose one more skill and describe it here."></textarea>
+        <label for="skillset">Skill Set</label>
+        <textarea type="text" class="form-control" name="skillset" placeholder="Describe your overall skill set." [(ngModel)]="model.skillset" #skillset="ngModel"
+        [ngClass]= "{ 'is-invalid': userForm.submitted && skillset.invalid }"  required></textarea>
+        <div class = "invalid-feedback" *ngIf="userForm.submitted && skillset.invalid">
+          <p *ngIf="skillset.errors?.required">Description of Skills is required</p>
+          </div>
       </div>
 
       <div class="form-group">
-          <label for="inputState">Class Schedule-Day</label>
-          <select id="inputState" class="form-control">
+        <label for="skillTitle01">Skill 1 title</label>
+        <textarea type="text" class="form-control" name="skillTitle01" placeholder="Type a Title for your First Skill" [(ngModel)]="model.skillTitle01" #skillTitle01="ngModel"
+        [ngClass]= "{ 'is-invalid': userForm.submitted && skillTitle01.invalid }"  required></textarea>
+        <div class = "invalid-feedback" *ngIf="userForm.submitted && skillTitle01.invalid">
+          <p *ngIf="skillTitle01.errors?.required">Title of Skill 1 is required</p>
+          </div>
+      </div>
+
+      <div class="form-group">
+        <label for="skill01">Skill 1</label>
+        <textarea type="text" class="form-control" name="skill01" placeholder="Describe Skill 1" [(ngModel)]="model.skill01" #skill01="ngModel"
+        [ngClass]= "{ 'is-invalid': userForm.submitted && skill01.invalid }"  required></textarea>
+        <div class = "invalid-feedback" *ngIf="userForm.submitted && skill01.invalid">
+          <p *ngIf="skill01.errors?.required">Description of Skill 1 is required</p>
+          </div>
+      </div>
+
+      <div class="form-group">
+        <label for="skill01Pic">Skill 1 Picture (link) </label>
+        <input type="text" class="form-control"  name = "skill01Pic" [(ngModel)]="model.skill01Pic" placeholder="Please Provide an image link" #skill01Pic="ngModel"
+        [ngClass]= "{ 'is-invalid': userForm.submitted && skill01Pic.invalid }" required>
+        <div class = "invalid-feedback" *ngIf="userForm.submitted && skill01Pic.invalid">
+        <p *ngIf="skill01Pic.errors?.required">Please Provide an image link</p>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="skillTitle02">Skill 2 Title </label>
+        <textarea type="text" class="form-control" name="skillTitle02" placeholder="Type a Title for your Second Skill" [(ngModel)]="model.skillTitle02" #skillTitle02="ngModel"
+        [ngClass]= "{ 'is-invalid': userForm.submitted && skillTitle02.invalid }"  required></textarea>
+        <div class = "invalid-feedback" *ngIf="userForm.submitted && skillTitle02.invalid">
+          <p *ngIf="skillTitle02.errors?.required">Title for Skill 2 is required</p>
+          </div>
+      </div>
+
+      <div class="form-group">
+        <label for="skill02">Skill 2</label>
+        <textarea type="text" class="form-control" name="skill02" placeholder="Describe Skill 2" [(ngModel)]="model.skill02" #skill02="ngModel"
+        [ngClass]= "{ 'is-invalid': userForm.submitted && skill02.invalid }"  required></textarea>
+        <div class = "invalid-feedback" *ngIf="userForm.submitted && skill02.invalid">
+          <p *ngIf="skill02.errors?.required">Description of Skill 2 is required</p>
+          </div>
+      </div>
+
+      <div class="form-group">
+        <label for="skill02Pic">Skill 2 Picture (link) </label>
+        <input type="text" class="form-control"  name = "skill02Pic" [(ngModel)]="model.skill02Pic" placeholder="Please Provide an image link" #skill02Pic="ngModel"
+        [ngClass]= "{ 'is-invalid': userForm.submitted && skill02Pic.invalid }" required>
+        <div class = "invalid-feedback" *ngIf="userForm.submitted && skill01Pic.invalid">
+        <p *ngIf="skill02Pic.errors?.required">Please Provide an image link</p>
+        </div>
+      </div>
+
+      <div class="form-group">
+          <label for="classDay">Class Schedule-Day</label>
+          <select name="classDay" class="form-control" [(ngModel)]="model.classDay" #classDay="ngModel"
+          [ngClass]= "{ 'is-invalid': userForm.submitted && classDay.invalid }"  required>
+          <div class = "invalid-feedback" *ngIf="userForm.submitted && classDay.invalid">
+            <p *ngIf="classDay.errors?.required">Please Choose a valid option</p>
+            </div>
+
             <option selected>Select the days...</option>
             <option>Mon - Friday</option>
             <option>Mon - Thursday</option>
@@ -92,29 +155,37 @@
         </div>
 
         <div class="form-group">
-          <label for="inputState">Class Schedule-Time</label>
-          <select id="inputState" class="form-control">
+          <label for="classTime">Class Schedule-Time</label>
+          <select name="classTime" class="form-control"  [(ngModel)]="model.classTime" #classTime="ngModel"
+          [ngClass]= "{ 'is-invalid': userForm.submitted && classTime.invalid }"  required>
+          <div class = "invalid-feedback" *ngIf="userForm.submitted && classTime.invalid">
+            <p *ngIf="classTime.errors?.required">Please Choose a valid option</p>
+            </div>
+
             <option selected>Select the times...</option>
             <option>6am to 12pm</option>
             <option>6am to 5pm</option>
-            <option>10 am - 12pm</option>
+            <option>10 am to 12pm</option>
             <option>12pm to 8pm</option>
             <option>10am to 8pm</option>
           </select>
         </div>
 
-      <div class="form-group">
+      <!-- <div class="form-group">
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="gridCheck">
+          <input class="form-check-input" type="checkbox" name="gridCheck"  [(ngModel)]="model.gridCheck" #gridCheck="ngModel"
+          [ngClass]= "{ 'is-invalid': userForm.submitted && gridCheck.invalid }"  required>
           <label class="form-check-label" for="gridCheck">
-            Do you authorize the use of  your information to create website?
+            Do you authorize the use of your information to create website and Duda Account?
           </label>
         </div>
-      </div> -->
+      </div>  -->
+
       <div class="form-group">
         <button class="btn btn-danger btn-block">Create my Website</button>
       </div>
     </form>
+
     <!-- end of form -->
   </div>
 

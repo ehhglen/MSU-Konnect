@@ -14,6 +14,18 @@ export class User {
   public aboutMeS!: string;
   public aboutMe!: string;
   public otherPassions!: string;
+  public skillset!: string;
+  public skill01!: string;
+  public skill02!: string;
+  public classDay!: string;
+  public classTime!: string;
+  public gridCheck!: any;
+  public skillTitle01!: string;
+  public skillTitle02!: string;
+  public skill01Pic!: string;
+  public skill02Pic!: string;
+  public aboutMePic!: string;
+  public passionsPic!: string;
 }
 @Component({
   selector: 'app-template',

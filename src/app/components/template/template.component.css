@@ -30,3 +30,23 @@
   text-shadow: 0 1px 0 #528ecc;
   outline: 0;
 } */
+.modal-body {
+  background: white !important;
+  border: 1.5px solid grey;
+  max-height: calc(100vh - 210px);
+  overflow-y: auto;
+  
+}
+.modal-header  {
+  background: rgb(54, 45, 187);
+}
+
+.modal-title { 
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: white;
+  font-size:x-large;
+}
+
+.btn-block{
+  background:  rgb(54, 45, 187);
+}
