@@ -1,0 +1,30 @@
+<div class = "bg">
+<div class= "header">
+<p style = "font-size: larger; color: black;"> New to MSU-Konnect? Sign up now to create your personalized Website!</p>
+</div>
+<div class= "form">
+<form  [formGroup]= "signupForm" (ngSubmit)= "signup()" noValidate >
+  
+  <mat-form-field>
+    <mat-label>First Name</mat-label>
+    <input matInput placeholder="Ex. Sammy" formControlName="name">
+  </mat-form-field>
+
+  <br>
+  <mat-form-field>
+    <mat-label>Email</mat-label>
+    <input matInput placeholder="Ex. Sammy" formControlName="email">
+  </mat-form-field>
+
+  <br>
+  <mat-form-field>
+    <mat-label>Password</mat-label>
+    <input matInput type = "password" placeholder="Ex. Sammy" formControlName="password">
+  </mat-form-field>
+  <br>
+  <button color="accent" [disabled]="!signupForm.valid" mat-raised-button type="submit">
+    <span>Sign Up</span></button>
+
+</form>
+</div>
+</div>

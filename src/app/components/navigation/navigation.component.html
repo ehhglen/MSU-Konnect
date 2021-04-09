@@ -1,0 +1,50 @@
+<mat-toolbar color="primary">
+  <span class = 'logo'>
+    <img src ="../assets/img/logo.png" width="180" height="50" alt="MSU-Konnect Logo" style="justify-content: flex-start;">
+  </span>
+  <span class = 'home'>
+    <a routerLink="/">
+      <span style="color:white">Home</span>
+    </a>
+  </span>
+  <span>
+    <a
+      *ngIf="isAuthenticated"
+      routerLinkActive="active-link" routerLink="/posts"
+    >
+      <span>Posts</span>
+    </a>
+    <a
+      class = 'login'
+      *ngIf="!isAuthenticated" routerLinkActive="active-link"
+      routerLink="/login"
+    >
+      <span>Login</span>
+    </a>
+    <a
+      *ngIf="isAuthenticated"
+      (click)="logout()"
+      routerLinkActive="active-link"
+      routerLink="/login"
+    >
+      <span>Logout</span>
+    </a>
+    <a
+      class = 'signup'
+      *ngIf="!isAuthenticated"
+      routerLinkActive="active-link"
+      routerLink="/signup"
+    >
+      <span>Signup</span>
+    </a>
+
+    <!-- this may be removed if not needed for signIn redirect -->
+    <a
+      *ngIf="isAuthenticated"
+      routerLinkActive="active-link"
+      routerLink="/template"
+    >
+    </a>
+
+  </span>
+</mat-toolbar>

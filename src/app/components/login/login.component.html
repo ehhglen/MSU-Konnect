@@ -1,0 +1,22 @@
+<div class = "bg">
+  <div>
+    <h1 class="header">Already have a webpage? Sign In!</h1>
+  </div>
+<form [formGroup]= "loginForm" (ngSubmit)= "login()" noValidate>
+    <div class = "form">
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input matInput placeholder="Ex. Sammy@msudenver.edu" formControlName="email">
+    </mat-form-field>
+  
+    <br>
+    <mat-form-field>
+      <mat-label>Password</mat-label>
+      <input matInput type = "password" placeholder="Ex. Sammy123!" formControlName="password">
+    </mat-form-field>
+    <br>
+    <button color="primary" [disabled]="!loginForm.valid" mat-raised-button type="submit">
+      <span>Log in</span></button>
+    </div>
+  </form>
+</div>
