@@ -1,78 +1,162 @@
-
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-
-      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css"  media="screen,projection"/>
-
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-    <body style="background:#14558a;">
-
-
-
 <!-- signup form modal --> 
+
+<body>
 <ng-template #content let-modal>
   <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+    <h4 class="modal-title" id="modal-basic-title">Create Website form</h4>
     <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
+
   <div class="modal-body">
-    <form class="form-size" [formGroup]= "mainfrom" novalidate>
 
-      <div class="form-row">
-        <div class="form-group col-md-6">
-          <label for="inputFirstName">Full Name</label>
-          <input type="firstName" class="form-control" id="inputFirstName" placeholder="First Name Last Name" formControlName="name" [(ngModel)]="name">
-        </div> 
-      </div>
+    <form #userForm="ngForm" (ngSubmit)="userForm.form.valid && onSubmit(userForm)">
 
-      <div class="form-row">
-        <div class="form-group col-md-6">
-          <label for="inputEmail">Email</label>
-          <input type="email" class="form-control" id="inputEmail" placeholder="Email" formControlName="email" [(ngModel)]="email">
-        </div>  
-        <div class="form-group col-md-6">
-          <label for="inputPhoneNumber">Phone Number</label>
-          <input type="number" class="form-control" id="inputPhoneNumber" placeholder="e.g: 720-899-88899" >
-        </div> 
+      <div class="form-group">
+        <label for="fullName">Full Name</label>
+        <input type="text" class="form-control"  id="fullName" name = "fullName" [(ngModel)]="model.fullName" placeholder="First Name Last Name" #name="ngModel"
+        [ngClass]= "{ 'is-invalid': userForm.submitted && name.invalid }" required>
+        <div class = "invalid-feedback" *ngIf="userForm.submitted && name.invalid">
+        <p *ngIf="name.errors?.required">Name is required</p>
+        </div>
       </div>
 
       <div class="form-group">
-        <label for="inputAboutMeSmall">About Me: breif Introduction</label>
-        <textarea type="text" class="form-control" id="inputAboutMeSmall" placeholder="Type a breif introduction to yourself here." ></textarea>
+        <label for="email">Email</label>
+        <input type="email" class="form-control"  id="email" name="email" placeholder="Email" [(ngModel)]="model.email" #email="ngModel"
+        [ngClass]= "{ 'is-invalid': userForm.submitted && email.invalid }" required>  
+        <div class = "invalid-feedback" *ngIf="userForm.submitted && email.invalid">
+          <p *ngIf="email.errors?.required">Email is required</p>
+          </div>
       </div>
 
       <div class="form-group">
-        <label for="inputAboutMe">About Me</label>
-        <textarea type="text" class="form-control" id="inputAboutMe" placeholder="Type a more in depth introduction to yourself here." ></textarea>
+        <label for="aboutMeS">About Me: breif Introduction</label>
+        <textarea type="text" class="form-control"  id="aboutMeS" name="aboutMeS" placeholder="Type a breif introduction to yourself here." [(ngModel)]="model.aboutMeS" #aboutMeS="ngModel"
+        [ngClass]= "{ 'is-invalid': userForm.submitted && aboutMeS.invalid }"   required></textarea>
+        <div class = "invalid-feedback" *ngIf="userForm.submitted && aboutMeS.invalid">
+          <p *ngIf="aboutMeS.errors?.required">Breif about me is required</p>
+          </div>
+      </div>
+      
+
+      <div class="form-group">
+        <label for="aboutMe">About Me</label>
+        <textarea type="text" class="form-control" id="aboutMe" name="aboutMe" placeholder="Type a more in depth introduction to yourself here." [(ngModel)]="model.aboutMe" #aboutMe="ngModel"
+        [ngClass]= "{ 'is-invalid': userForm.submitted && aboutMe.invalid }"  required>></textarea>
+        <div class = "invalid-feedback" *ngIf="userForm.submitted && aboutMe.invalid">
+          <p *ngIf="aboutMe.errors?.required">About me is required</p>
+          </div>
       </div>
 
       <div class="form-group">
-        <label for="inputOtherPassions">Other Passions</label>
-        <textarea type="text" class="form-control" id="inputOtherPassions" placeholder="Give a description of passions related/unrelated to your major or career." ></textarea>
+        <label for="aboutMePic">About Me Picture (link) </label>
+        <input type="text" class="form-control" id="aboutMePic" name = "aboutMePic" [(ngModel)]="model.aboutMePic" placeholder="Please Provide an image link" #aboutMePic="ngModel"
+        [ngClass]= "{ 'is-invalid': userForm.submitted && aboutMePic.invalid }" required>
+        <div class = "invalid-feedback" *ngIf="userForm.submitted && aboutMePic.invalid">
+        <p *ngIf="aboutMePic.errors?.required">Please Provide an image link</p>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="otherPassions">Other Passions</label>
+        <textarea type="text" class="form-control" id="otherPassions" name="otherPassions" placeholder="Give a description of passions related/unrelated to your major or career." [(ngModel)]="model.otherPassions" #otherPassions="ngModel"
+        [ngClass]= "{ 'is-invalid': userForm.submitted && otherPassions.invalid }"  required></textarea>
+        <div class = "invalid-feedback" *ngIf="userForm.submitted && otherPassions.invalid">
+          <p *ngIf="otherPassions.errors?.required">Description of other passions is required</p>
+          </div>
       </div>
 
       <div class="form-group">
-        <label for="inputSkillSet">Skill Set</label>
-        <textarea type="text" class="form-control" id="inputSkillSet" placeholder="Describe your overall skillset." ></textarea>
+        <label for="passionsPic">Other Passions Picture (link) </label>
+        <input type="text" class="form-control"  id="passionsPic" name = "passionsPic" [(ngModel)]="model.passionsPic" placeholder="Please Provide an image link" #passionsPic="ngModel"
+        [ngClass]= "{ 'is-invalid': userForm.submitted && passionsPic.invalid }" required>
+        <div class = "invalid-feedback" *ngIf="userForm.submitted && passionsPic.invalid">
+        <p *ngIf="passionsPic.errors?.required">Please Provide an image link</p>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="resume">resume Picture (link) </label>
+        <input type="text" class="form-control"  id="resume" name = "resume" [(ngModel)]="model.resume" placeholder="Please Provide an image link" #resume="ngModel"
+        [ngClass]= "{ 'is-invalid': userForm.submitted && resume.invalid }" required>
+        <div class = "invalid-feedback" *ngIf="userForm.submitted && resume.invalid">
+        <p *ngIf="resume.errors?.required">Please Provide an image link</p>
+        </div>
       </div>
 
       <div class="form-group">
-        <label for="inputSkill01">Skill 1</label>
-        <textarea type="text" class="form-control" id="inputSkill01" placeholder="Choose a skill and describe it here." ></textarea>
+        <label for="skillset">Skill Set</label>
+        <textarea type="text" class="form-control" id="skillset" name="skillset" placeholder="Describe your overall skill set." [(ngModel)]="model.skillset" #skillset="ngModel"
+        [ngClass]= "{ 'is-invalid': userForm.submitted && skillset.invalid }"  required></textarea>
+        <div class = "invalid-feedback" *ngIf="userForm.submitted && skillset.invalid">
+          <p *ngIf="skillset.errors?.required">Description of Skills is required</p>
+          </div>
       </div>
+
       <div class="form-group">
-        <label for="inputSkill02">Skill 2</label>
-        <textarea type="text" class="form-control" id="inputSkill02" placeholder="Choose one more skill and describe it here." ></textarea>
+        <label for="skillTitle01">Skill 1 title</label>
+        <textarea type="text" class="form-control"  id="skillTitle01" name="skillTitle01" placeholder="Type a Title for your First Skill" [(ngModel)]="model.skillTitle01" #skillTitle01="ngModel"
+        [ngClass]= "{ 'is-invalid': userForm.submitted && skillTitle01.invalid }"  required></textarea>
+        <div class = "invalid-feedback" *ngIf="userForm.submitted && skillTitle01.invalid">
+          <p *ngIf="skillTitle01.errors?.required">Title of Skill 1 is required</p>
+          </div>
       </div>
 
-      <div class="form-row">
+      <div class="form-group">
+        <label for="skill01">Skill 1</label>
+        <textarea type="text" class="form-control"  id="skill01" name="skill01" placeholder="Describe Skill 1" [(ngModel)]="model.skill01" #skill01="ngModel"
+        [ngClass]= "{ 'is-invalid': userForm.submitted && skill01.invalid }"  required></textarea>
+        <div class = "invalid-feedback" *ngIf="userForm.submitted && skill01.invalid">
+          <p *ngIf="skill01.errors?.required">Description of Skill 1 is required</p>
+          </div>
+      </div>
 
-        <div class="form-group col-md-4">
-          <label for="inputState">Class Schedule-Day</label>
-          <select id="inputState" class="form-control" >
+      <div class="form-group">
+        <label for="skill01Pic">Skill 1 Picture (link) </label>
+        <input type="text" class="form-control"  id="skill01Pic" name = "skill01Pic" [(ngModel)]="model.skill01Pic" placeholder="Please Provide an image link" #skill01Pic="ngModel"
+        [ngClass]= "{ 'is-invalid': userForm.submitted && skill01Pic.invalid }" required>
+        <div class = "invalid-feedback" *ngIf="userForm.submitted && skill01Pic.invalid">
+        <p *ngIf="skill01Pic.errors?.required">Please Provide an image link</p>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="skillTitle02">Skill 2 Title </label>
+        <textarea type="text" class="form-control" id="skillTitle02" name="skillTitle02" placeholder="Type a Title for your Second Skill" [(ngModel)]="model.skillTitle02" #skillTitle02="ngModel"
+        [ngClass]= "{ 'is-invalid': userForm.submitted && skillTitle02.invalid }"  required></textarea>
+        <div class = "invalid-feedback" *ngIf="userForm.submitted && skillTitle02.invalid">
+          <p *ngIf="skillTitle02.errors?.required">Title for Skill 2 is required</p>
+          </div>
+      </div>
+
+      <div class="form-group">
+        <label for="skill02">Skill 2</label>
+        <textarea type="text" class="form-control" id="skill02" name="skill02" placeholder="Describe Skill 2" [(ngModel)]="model.skill02" #skill02="ngModel"
+        [ngClass]= "{ 'is-invalid': userForm.submitted && skill02.invalid }"  required></textarea>
+        <div class = "invalid-feedback" *ngIf="userForm.submitted && skill02.invalid">
+          <p *ngIf="skill02.errors?.required">Description of Skill 2 is required</p>
+          </div>
+      </div>
+
+      <div class="form-group">
+        <label for="skill02Pic">Skill 2 Picture (link) </label>
+        <input type="text" class="form-control" id="skill02Pic" name = "skill02Pic" [(ngModel)]="model.skill02Pic" placeholder="Please Provide an image link" #skill02Pic="ngModel"
+        [ngClass]= "{ 'is-invalid': userForm.submitted && skill02Pic.invalid }" required>
+        <div class = "invalid-feedback" *ngIf="userForm.submitted && skill01Pic.invalid">
+        <p *ngIf="skill02Pic.errors?.required">Please Provide an image link</p>
+        </div>
+      </div>
+
+      <div class="form-group">
+          <label for="classDay">Class Schedule-Day</label>
+          <select name="classDay" id="classDay" class="form-control" [(ngModel)]="model.classDay" #classDay="ngModel"
+          [ngClass]= "{ 'is-invalid': userForm.submitted && classDay.invalid }"  required>
+          <div class = "invalid-feedback" *ngIf="userForm.submitted && classDay.invalid">
+            <p *ngIf="classDay.errors?.required">Please Choose a valid option</p>
+            </div>
+
             <option selected>Select the days...</option>
             <option>Mon - Friday</option>
             <option>Mon - Thursday</option>
@@ -80,155 +164,177 @@
             <option>Wedesday and Thursday</option>
           </select>
         </div>
-        <div class="form-group col-md-4">
-          <label for="inputState">Class Schedule-Time</label>
-          <select id="inputState" class="form-control" >
+
+        <div class="form-group">
+          <label for="classTime">Class Schedule-Time</label>
+          <select name="classTime" id="classTime" class="form-control"  [(ngModel)]="model.classTime" #classTime="ngModel"
+          [ngClass]= "{ 'is-invalid': userForm.submitted && classTime.invalid }"  required>
+          <div class = "invalid-feedback" *ngIf="userForm.submitted && classTime.invalid">
+            <p *ngIf="classTime.errors?.required">Please Choose a valid option</p>
+            </div>
+
             <option selected>Select the times...</option>
             <option>6am to 12pm</option>
             <option>6am to 5pm</option>
-            <option>10 am - 12pm</option>
+            <option>10 am to 12pm</option>
             <option>12pm to 8pm</option>
             <option>10am to 8pm</option>
           </select>
         </div>
-      </div>
-      <div class="form-group">
+
+        <div class="form-group">
+          <label for="gallery">Gallery Pictures</label>
+          <input type="text" id="gallery" class="form-control"  name = "gallery" [(ngModel)]="model.gallery" placeholder="Please Provide an image links for gallery" #gallery="ngModel"
+          [ngClass]= "{ 'is-invalid': userForm.submitted && gallery.invalid }" required>
+          <input type="text" id="gallery1" class="form-control"  name = "gallery1" [(ngModel)]="model.gallery1" placeholder="Please Provide an image links for gallery" #gallery1="ngModel"
+          [ngClass]= "{ 'is-invalid': userForm.submitted && gallery.invalid }" required>
+          <input type="text" id="gallery2" class="form-control"  name = "gallery2" [(ngModel)]="model.gallery2" placeholder="Please Provide an image links for gallery" #gallery2="ngModel"
+          [ngClass]= "{ 'is-invalid': userForm.submitted && gallery.invalid }" required>
+          <input type="text" id="gallery3" class="form-control"  name = "gallery3" [(ngModel)]="model.gallery3" placeholder="Please Provide an image links for gallery" #gallery3="ngModel"
+          [ngClass]= "{ 'is-invalid': userForm.submitted && gallery.invalid }" required>
+          <input type="text" id="gallery4" class="form-control"  name = "gallery4" [(ngModel)]="model.gallery4" placeholder="Please Provide an image links for gallery" #gallery4="ngModel"
+          [ngClass]= "{ 'is-invalid': userForm.submitted && gallery.invalid }" required>
+          <div class = "invalid-feedback" *ngIf="userForm.submitted && gallery.invalid">
+          <p *ngIf="gallery.errors?.required">Please Provide an image link</p>
+          </div>
+        </div>
+  
+      <!-- <div class="form-group">
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="gridCheck" >
+          <input class="form-check-input" type="checkbox" name="gridCheck"  [(ngModel)]="model.gridCheck" #gridCheck="ngModel"
+          [ngClass]= "{ 'is-invalid': userForm.submitted && gridCheck.invalid }"  required>
           <label class="form-check-label" for="gridCheck">
-            Do you authorize the use of  your information to create website?
+            Do you authorize the use of your information to create website and Duda Account?
           </label>
         </div>
+      </div>  -->
+
+
+      <div class="form-group">
+        <button class="btn btn-danger btn-block">Create my Website</button>
       </div>
     </form>
-  
+
+    <!-- end of form -->
   </div>
-  <div class="modal-footer">
-    <button type="button" id="btn" class="btn btn-outline-dark"  (click)="modal.close('Save')" > Create my Website </button>
-  </div>
+
 </ng-template>
-<hr>
+
 <!-- sign up form end -->
-<div class="row top" style="background:#d41540">
-  <div class="col s12 center-align">
-      <h4 class="" style="color:#ffffff; font-size: 24px;">Choose a template to start from</h4>
-      <p style="color:#ffffff; font-size: 24px;">Each template is natively responsive and can be fully customized to your liking.</p>
-  </div>
-</div>
-<div class="container">
-  <div class="row">
-  <div *ngFor="let message of messages | async">
-    <div *ngIf="message.base_site_name === 'b9997373'">
+
+
+
+
+
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css"  media="screen,projection"/>
+
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <body style="background:#14558a;">
+      <div class="row top" style="background:#d41540">
+        <div class="col s12 center-align">
+            <h4 class="" style="color:#ffffff; font-size: 24px;">Choose a template to start from</h4>
+            <p style="color:#ffffff; font-size: 24px;">Each template is natively responsive and can be fully customized to your liking.</p>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm">
+            <div class="card">
+              <div class="card-image">
+                <img class="materialboxed" src="https://irp.cdn-website.com/b9997373/screenshots/Screenshot.png?timestamp=1618358225000&updated=true">
+                <a class="btn-floating tooltipped halfway-fab waves-effect waves-light red start-building" data-tooltip="Start editing this template"><i class="material-icons">mode_edit</i></a>
+              </div>
+              <div class="card-content">
+                <span class="card-title grey-text text-darken-4 truncate">ART MAJOR</span>
+                <a href="http://ppanth2481e64a.responsivewebsitebuilder.io/preview/b9997373" target="_blank">Preview Template</a>
+              </div>
+              <div class="card-action">
+                <a class="start-building" (click)="open(content, '1215439')">Start with this template</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm">
+            <div class="card">
+              <div class="card-image">
+                <img class="materialboxed" src="https://irp-cdn.multiscreensite.com/6d2ca52d/screenshots/Screenshot.png?timestamp=1616474248000&updated=true">
+                <a class="btn-floating tooltipped halfway-fab waves-effect waves-light red start-building" data-tooltip="Start editing this template"><i class="material-icons">mode_edit</i></a>
+              </div>
+              <div class="card-content">
+                <span class="card-title grey-text text-darken-4 truncate">CS MAJOR</span>
+                <a href="http://ppanth2481e64a.responsivewebsitebuilder.io/preview/6d2ca52d" target="_blank">Preview Template</a>
+              </div>
+              <div class="card-action">
+                <a class="start-building" (click)="open(content, '1215439')">Start with this template</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm">
+            <div class="card">
+              <div class="card-image">
+                <img class="materialboxed" src="https://irp-cdn.multiscreensite.com/13f7ccab/screenshots/Screenshot.png?timestamp=1616474264000&updated=true">
+                <a class="btn-floating tooltipped halfway-fab waves-effect waves-light red start-building" data-tooltip="Start editing this template"><i class="material-icons">mode_edit</i></a>
+              </div>
+              <div class="card-content">
+                <span class="card-title grey-text text-darken-4 truncate">ART MAJOR</span>
+                <a href="https://ppanth2481e64a.responsivewebsitebuilder.io/preview/13f7ccab" target="_blank">Preview Template</a>
+              </div>
+              <div class="card-action">
+                <a class="start-building" (click)="open(content, '1215439')">Start with this template</a>
+              </div>
+            </div>
+          </div>
+        </div>
       
-       <!-- First one -->
-       <!-- col s12 m6 l4  -->
-    <div class="col-sm">
-      <div class="card">
-        <div class="card-image">
-          <img class="materialboxed" src="{{message.thumbnail_url}}">
-          <a class="btn-floating tooltipped halfway-fab waves-effect waves-light red start-building" data-tooltip="Start editing this template"><i class="material-icons">mode_edit</i></a>
-        </div>
-        <div class="card-content">
-          <span class="card-title grey-text text-darken-4 truncate">{{message.template_name}}</span>
-          <a href="{{message.preview_url}}" target="_blank">Preview Template</a>
-        </div>
-        <div class="card-action">
-          <a class="start-building" (click)="open(content, '1215439')">Start with this template</a>
-        </div>
-      </div>
-    </div>
-    </div>
-    <!-- second one -->
-    <div *ngIf="message.base_site_name === '6d2ca52d'">
-    <div class="col-sm">
-      <div class="card">
-        <div class="card-image">
-          <img class="materialboxed" src="{{message.thumbnail_url}}">
-          <a class="btn-floating tooltipped halfway-fab waves-effect waves-light red start-building" data-tooltip="Start editing this template"><i class="material-icons">mode_edit</i></a>
-        </div>
-        <div class="card-content">
-          <span class="card-title grey-text text-darken-4 truncate">{{message.template_name}}</span>
-          <a href="{{message.preview_url}}" target="_blank">Preview Template</a>
-        </div>
-        <div class="card-action">
-          <a  class="start-building" (click)="open(content, '1215442')">Start with this template</a>
-        </div>
-      </div>
-    </div>
-    </div>
-    <!-- Thrid One-->
-    <div *ngIf="message.base_site_name === '13f7ccab'">
-      <div class="col-sm">
-        <div class="card">
-          <div class="card-image">
-            <img class="materialboxed" src="{{message.thumbnail_url}}">
-            <a class="btn-floating tooltipped halfway-fab waves-effect waves-light red start-building" data-tooltip="Start editing this template"><i class="material-icons">mode_edit</i></a>
-          </div>
-          <div class="card-content">
-            <span class="card-title grey-text text-darken-4 truncate">{{message.template_name}}</span>
-            <a href="{{message.preview_url}}" target="_blank">Preview Template</a>
-          </div>
-          <div class="card-action">
-            <a class="start-building" (click)="open(content, '1215444')">Start with this template</a>
-          </div>
-        </div>
-      </div>
-      </div>
-      <!-- Fourth One-->
-    <div *ngIf="message.base_site_name === 'e64cfa2f'">
-      <div class="col-sm">
-        <div class="card">
-          <div class="card-image">
-            <img class="materialboxed" src="{{message.thumbnail_url}}">
-            <a class="btn-floating tooltipped halfway-fab waves-effect waves-light red start-building" data-tooltip="Start editing this template"><i class="material-icons">mode_edit</i></a>
-          </div>
-          <div class="card-content">
-            <span class="card-title grey-text text-darken-4 truncate">{{message.template_name}}</span>
-            <a href="{{message.preview_url}}" target="_blank">Preview Template</a>
-          </div>
-          <div class="card-action">
-            <a   class="start-building"  (click)="open(content, '1215447')">Start with this template</a>
-          </div>
-        </div>
-      </div>
-      </div>
-        <!-- Fifth One-->
-    <div *ngIf="message.base_site_name === '9f7b8297'">
-      <div class="col-sm">
-        <div class="card">
-          <div class="card-image">
-            <img class="materialboxed" src="{{message.thumbnail_url}}">
-            <a class="btn-floating tooltipped halfway-fab waves-effect waves-light red start-building" data-tooltip="Start editing this template"><i class="material-icons">mode_edit</i></a>
-          </div>
-          <div class="card-content">
-            <span class="card-title grey-text text-darken-4 truncate">{{message.template_name}}</span>
-            <a href="{{message.preview_url}}" target="_blank">Preview Template</a>
-          </div>
-          <div class="card-action">
-            <a class="start-building" (click)="open(content, '1215448')">Start with this template</a>
-          </div>
-        </div>
-      </div>
-      </div>
-      <div *ngIf="message.base_site_name === 'df33db14'">
-        <div class="col-sm">
-          <div class="card">
-            <div class="card-image">
-              <img class="materialboxed" src="{{message.thumbnail_url}}">
-              <a class="btn-floating tooltipped halfway-fab waves-effect waves-light red start-building" data-tooltip="Start editing this template"><i class="material-icons">mode_edit</i></a>
+      
+      
+        <div class="row">
+          <div class="col-sm">
+            <div class="card">
+              <div class="card-image">
+                <img class="materialboxed" src="https://irp-cdn.multiscreensite.com/e64cfa2f/screenshots/Screenshot.png?timestamp=1616474276000&updated=true">
+                <a class="btn-floating tooltipped halfway-fab waves-effect waves-light red start-building" data-tooltip="Start editing this template"><i class="material-icons">mode_edit</i></a>
+              </div>
+              <div class="card-content">
+                <span class="card-title grey-text text-darken-4 truncate">Finance MAJOR</span>
+                <a href="https://ppanth2481e64a.responsivewebsitebuilder.io/preview/e64cfa2f" target="_blank">Preview Template</a>
+              </div>
+              <div class="card-action">
+                <a class="start-building" (click)="open(content, '1215439')">Start with this template</a>
+              </div>
             </div>
-            <div class="card-content">
-              <span class="card-title grey-text text-darken-4 truncate">{{message.template_name}}</span>
-              <a href="{{message.preview_url}}" target="_blank">Preview Template</a>
+          </div>
+          <div class="col-sm">
+            <div class="card">
+              <div class="card-image">
+                <img class="materialboxed" src="https://irp-cdn.multiscreensite.com/9f7b8297/screenshots/Screenshot.png?timestamp=1616474328000&updated=true">
+                <a class="btn-floating tooltipped halfway-fab waves-effect waves-light red start-building" data-tooltip="Start editing this template"><i class="material-icons">mode_edit</i></a>
+              </div>
+              <div class="card-content">
+                <span class="card-title grey-text text-darken-4 truncate">Photography MAJOR</span>
+                <a href="https://ppanth2481e64a.responsivewebsitebuilder.io/preview/9f7b8297" target="_blank">Preview Template</a>
+              </div>
+              <div class="card-action">
+                <a class="start-building" (click)="open(content, '1215439')">Start with this template</a>
+              </div>
             </div>
-            <div class="card-action">
-              <a   class="start-building" (click)="open(content, '1215451')" >Start with this template</a>
+          </div>
+          <div class="col-sm">
+            <div class="card">
+              <div class="card-image">
+                <img class="materialboxed" src="https://irp-cdn.multiscreensite.com/df33db14/screenshots/Screenshot.png?timestamp=1616474312000&updated=true">
+                <a class="btn-floating tooltipped halfway-fab waves-effect waves-light red start-building" data-tooltip="Start editing this template"><i class="material-icons">mode_edit</i></a>
+              </div>
+              <div class="card-content">
+                <span class="card-title grey-text text-darken-4 truncate">BIO MAJOR</span>
+                <a href="https://ppanth2481e64a.responsivewebsitebuilder.io/preview/df33db14" target="_blank">Preview Template</a>
+              </div>
+              <div class="card-action">
+                <a class="start-building" (click)="open(content, '1215439')">Start with this template</a>
+              </div>
             </div>
           </div>
         </div>
-        </div>
-    <!--END-->
-  </div>
-  </div>
-</div>
-</body>
+      </div>
+    </body>

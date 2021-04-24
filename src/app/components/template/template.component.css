@@ -30,3 +30,50 @@
   text-shadow: 0 1px 0 #528ecc;
   outline: 0;
 } */
+
+
+
+body.mat-typography {
+  background-color: #1a568a !important;
+}
+
+.modal-body {
+  background: white !important;
+  border: 1.5px solid grey;
+  overflow-y: auto;
+}
+.modal-header  {
+  background: rgb(54, 45, 187);
+}
+
+.modal-title { 
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: white;
+  font-size:x-large;
+}
+
+.modal-open .modal {
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: max-content !important;
+}
+
+.modal {
+  position: fixed;
+  left: 0;
+  right: 0;
+  background-color: #fafafa;
+  padding: 0;
+  max-height: 100% !important;
+  margin: auto;
+  border-radius: 2px;
+  will-change: top, opacity;
+}
+
+.btn{
+  background:  rgb(54, 45, 187);
+  color: white;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  position: relative;
+  margin-top: 15px;
+}

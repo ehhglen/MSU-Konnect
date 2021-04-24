@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {ReactiveFormsModule} from "@angular/forms"
+import {ReactiveFormsModule,FormsModule} from "@angular/forms"
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,6 +24,7 @@ import { TemplateComponent } from './components/template/template.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ContactFromComponent } from './contact-from/contact-from.component';
 
 
 
@@ -38,6 +39,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     NavigationComponent,
     FooterComponent,
     TemplateComponent,
+    ContactFromComponent,
 
 
   ],
@@ -56,6 +58,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     RouterModule.forRoot([
       { path: 'template', component: TemplateComponent },
     ]),
+    FormsModule,
     NgbModule
   ],
   providers: [],

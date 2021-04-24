@@ -1,122 +1,159 @@
 // https://ng-bootstrap.github.io/#/components/modal/examples
+//https://www.positronx.io/angular-form-validation-with-template-driven-using-bootstrap/
 
 import { NgbModal, ModalDismissReasons, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { FormGroup, FormBuilder, FormControl, Validators  } from '@angular/forms';
 
+export var temp_id = 0;
 
+export class User {
+  public fullName!: string;
+  public email!: string;
+  public phoneNumber!: number;
+  public aboutMeS!: string;
+  public aboutMe!: string;
+  public otherPassions!: string;
+  public skillset!: string;
+  public skill01!: string;
+  public skill02!: string;
+  public classDay!: string;
+  public classTime!: string;
+  public gridCheck!: any;
+  public skillTitle01!: string;
+  public skillTitle02!: string;
+  public skill01Pic!: string;
+  public skill02Pic!: string;
+  public aboutMePic!: string;
+  public passionsPic!: string;
+  public gallery!: String;
+  public gallery1!: String;
+  public gallery2!: String;
+  public gallery3!: String;
+  public gallery4!: String;
+  public resume!: String;
+  
 
+}
 @Component({
   selector: 'app-template',
   templateUrl: './template.component.html',
   styleUrls: ['./template.component.css']
 })
 export class TemplateComponent implements OnInit {
-
-  mainfrom!:FormGroup;
-
-  name!:number; 
-
-  email!:number;
-
   closeResult = '';
   messages = this.http.get<any[]>('http://localhost:4201');
 
-    constructor(private http: HttpClient, private modalService: NgbModal, private fb:FormBuilder) {}
+    constructor(private http: HttpClient, private modalService: NgbModal) {}
     
-    ngOnInit(): void {
+    model = new User();
 
-      this.mainfrom=this.fb.group({
-        name: [this.name, [Validators.required]],
-        email:[this.email,[Validators.required]],
-      })  
-  
-  }
+    ngOnInit(): void {
+    }
  
     open(content: any, template_id:any) {
-      
-      this.modalService.open(content, {scrollable: true, size:'xl', ariaLabelledBy:"formModal"} ).result.then((result) => {
-        // var name = document.getElementById('inputFirstName')!;
-        var inputValue = (<HTMLInputElement>document.getElementById('inputFirstName')).value;
-        let movies = [];
-            let movie = {
-              page_item_url: "1",
-               "data": {
-                "Passion Image": "https://irp-cdn.multiscreensite.com/89aa7f51/dms3rep/multi/photo-1590153005020-236b736e06d1-805ab09d.jpg",
-                "Passion Text": "<p class=\"rteBlock\">This is a text area for titles and paragraphs. Writing in paragraphs lets your visitor find what they are looking for quickly and easily.Make sure your titles stand out from the rest of the text.</p><br><p class=\"rteBlock\"> To change this text simply click it and choose &quot;edit.&quot; Highlight the text you want to change and start typing. This works for both the title and paragraph.</p>",
-                "Project 2 Title": "<p class=\"rteBlock\">Adobe</p>",
-                "Resume Image": "https://irp-cdn.multiscreensite.com/89aa7f51/dms3rep/multi/Photographer-Resume-Example-Template.png",
-                "project 1 Image": "https://irp-cdn.multiscreensite.com/md/dmip/dms3rep/multi/skyscrapers-blue-sky.jpg",
-                "About Text": "<p class=\"rteBlock\">Hi! I am a Photography major at Metropolitan State University of Denver. more detail more detail more detail more detail  more detail   more detail more detail more detail more detail Check out my work! </p>",
-                "Project 1 description": "<p class=\"rteBlock\">Photoshop skills that I have been perfecting it for 100 years.</p>",
-                "Intro": "<p class=\"rteBlock\">Welcome, I am a student at Metropolitan State University of Denver!</p>",
-                "About Me": "https://irp-cdn.multiscreensite.com/md/unsplash/dms3rep/multi/photo-1575486095597-13f6fc58054e.jpg",
-               
-                "Gallery": [
-{
-                        "image": "https://irp-cdn.multiscreensite.com/md/unsplash/dms3rep/multi/photo-1542596594-649edbc13630.jpg",
-                        "description": "",
-                        "title": ""
-                    },
-                    {
-                        "image": "https://irp-cdn.multiscreensite.com/md/unsplash/dms3rep/multi/photo-1443916568596-df5a58c445e9.jpg",
-                        "description": "",
-                        "title": ""
-                    },
-                    {
-                        "image": "https://irp-cdn.multiscreensite.com/md/unsplash/dms3rep/multi/photo-1496282061992-d6a3994128a2.jpg",
-                        "description": "",
-                        "title": ""
-                    },
-                    {
-                        "image": "https://irp-cdn.multiscreensite.com/md/unsplash/dms3rep/multi/photo-1484712401471-05c7215830eb.jpg",
-                        "description": "",
-                        "title": ""
-                    },
-                    {
-                        "image": "https://irp-cdn.multiscreensite.com/md/unsplash/dms3rep/multi/photo-1517488629431-6427e0ee1e5f.jpg",
-                        "description": "",
-                        "title": ""
-                    },
-                    {
-                        "image": "https://irp-cdn.multiscreensite.com/md/unsplash/dms3rep/multi/photo-1536010447069-d2c8af80c584.jpg",
-                        "description": "",
-                        "title": ""
-                    }
-                ],
-                "Project 1 Title": "<p class=\"rteBlock\">Photoshop</p>",
-                "Skills Text": "<p class=\"rteBlock\">This is a text area for titles and paragraphs. Writing in paragraphs lets your visitor find what they are looking for quickly and easily.Make sure your titles stand out from the rest of the text.</p><br><p class=\"rteBlock\"> To change this text simply click it and choose &quot;edit.&quot; Highlight the text you want to change and start typing. This works for both the title and paragraph.</p>",
-                "Project 2 Video": "https://www.youtube.com/embed/WxfZkMm3wcg",
-                "Project 2 description": "<p class=\"rteBlock\">This is a text area for titles and paragraphs. Writing in paragraphs lets your visitor find what they are looking for quickly and easily.Make sure your titles stand out from the rest of the text.</p><br><p class=\"rteBlock\"> To change this text simply click it and choose &quot;edit.&quot; Highlight the text you want to change and start typing. This works for both the title and paragraph.</p>"
-            }
-          }
-        movies.push(movie);
+
+        temp_id = template_id;
+
         
+    
+        this.modalService.open(content, {scrollable: true, size:'xl', ariaLabelledBy:"formModal"} ).result.then((result) => {
+        this.closeResult = `Closed with: ${result}`;
         
-
-        // this.closeResult = `Closed with: ${result}`;
-
-        if (result == 'Save')
-        {
-          console.log('success');
-          this.http.post<any[]>('http://localhost:4201/template' , {template_id:template_id})
-          .subscribe(next => console.log(next));
-
-          console.log(JSON.stringify(movies));
-
-          this.http.post<any[]>('http://localhost:4201/collection' , movies)
-          .subscribe(next => console.log(next));
-
-        }
-        else{
-
-          console.log('fail');
-
-        }
-
       });
+  }
+  
+  onSubmit(form: { value: any; }) {
+    this.modalService.dismissAll('Dismissed after saving data'); // close the form after submission
+
+    var fullName = (<HTMLInputElement>document.getElementById('fullName')).value;
+    var email = (<HTMLInputElement>document.getElementById('email')).value; 
+    var aboutMeS = (<HTMLInputElement>document.getElementById('aboutMeS')).value;
+    var aboutMe = (<HTMLInputElement>document.getElementById('aboutMe')).value;
+    var aboutMePic = (<HTMLInputElement>document.getElementById('aboutMePic')).value; 
+    var otherPassions = (<HTMLInputElement>document.getElementById('otherPassions')).value; 
+    var passionsPic = (<HTMLInputElement>document.getElementById('passionsPic')).value; 
+    var skillset = (<HTMLInputElement>document.getElementById('skillset')).value; 
+    var skillTitle01 = (<HTMLInputElement>document.getElementById('skillTitle01')).value; 
+    var skill01 = (<HTMLInputElement>document.getElementById('skill01')).value; 
+    var skill01Pic = (<HTMLInputElement>document.getElementById('skill01Pic')).value; 
+    var skillTitle02 = (<HTMLInputElement>document.getElementById('skillTitle02')).value; 
+    var skill02 = (<HTMLInputElement>document.getElementById('skill02')).value; 
+    var skill02Pic = (<HTMLInputElement>document.getElementById('skill02Pic')).value; 
+    var classDay = (<HTMLInputElement>document.getElementById('classDay')).value;
+    var classTime = (<HTMLInputElement>document.getElementById('classTime')).value;
+    var gallery = (<HTMLInputElement>document.getElementById('gallery')).value; 
+    var gallery1 = (<HTMLInputElement>document.getElementById('gallery1')).value; 
+    var gallery2 = (<HTMLInputElement>document.getElementById('gallery2')).value; 
+    var gallery3 = (<HTMLInputElement>document.getElementById('gallery3')).value; 
+    var gallery4 = (<HTMLInputElement>document.getElementById('gallery4')).value; 
+    var resume = (<HTMLInputElement>document.getElementById('resume')).value; 
+
+
+    let sitedata = [];
+    let data = {
+      page_item_url: "1",
+       "data": {
+        "Passion Image": passionsPic,
+        "Passion Text": otherPassions,
+        "Project 2 Title": skillTitle02,
+        "Resume Image": "https://irp-cdn.multiscreensite.com/89aa7f51/dms3rep/multi/Photographer-Resume-Example-Template.png",
+        "project 1 Image": skill01Pic,
+        "About Text": aboutMeS,
+        "Project 1 description": skill01,
+        "Intro": aboutMe,
+        "About Me": aboutMePic,
+       
+        "Gallery": [
+{
+                "image": gallery,
+                "description": "",
+                "title": ""
+            },
+            {
+                "image": gallery1,
+                "description": "",
+                "title": ""
+            },
+            {
+                "image": gallery2,
+                "description": "",
+                "title": ""
+            },
+            {
+                "image": gallery3,
+                "description": "",
+                "title": ""
+            },
+            {
+                "image": gallery4,
+                "description": "",
+                "title": ""
+            }
+        ],
+        "Project 1 Title": skillTitle01,
+        "Skills Text": skillset,
+        "Project 2 Video": skill02Pic,
+        "Project 2 description": skill02
+    }
+  }
+sitedata.push(data);
+
+
+  this.http.post<any[]>('http://localhost:4201/template' , {template_id:temp_id})
+  .subscribe(next => console.log(next));
+
+  console.log(JSON.stringify(sitedata));
+  
+  this.http.post<any[]>('http://localhost:4201/collection' , sitedata)
+  .subscribe(next => console.log(next));
+
+
+  // this.http.post<any[]>('http://localhost:4201/account' , {"account_type":"CUSTOMER","account_name":email,"first_name":fullName,"last_name":"panth"})
+  // .subscribe(next => console.log(next));
+
+  // this.http.post<any[]>('http://localhost:4201/permissions' , {"permissions":["PUSH_NOTIFICATIONS","REPUBLISH","EDIT","INSITE","PUBLISH","CUSTOM_DOMAIN","RESET","SEO","STATS_TAB","BLOG"]})
+  // .subscribe(next => console.log(next));
     
   }
-
 }
