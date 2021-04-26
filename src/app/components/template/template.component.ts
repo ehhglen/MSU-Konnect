@@ -140,20 +140,8 @@ export class TemplateComponent implements OnInit {
 sitedata.push(data);
 
 
-  this.http.post<any[]>('http://localhost:4201/template' , {template_id:temp_id})
-  .subscribe(next => console.log(next));
-
-  console.log(JSON.stringify(sitedata));
+  this.http.post<any[]>('http://localhost:4201/template' , {template_id:temp_id, sitedata, email,fullName })
+  .subscribe(next => console.log(next));  
   
-  this.http.post<any[]>('http://localhost:4201/collection' , sitedata)
-  .subscribe(next => console.log(next));
-
-
-  // this.http.post<any[]>('http://localhost:4201/account' , {"account_type":"CUSTOMER","account_name":email,"first_name":fullName,"last_name":"panth"})
-  // .subscribe(next => console.log(next));
-
-  // this.http.post<any[]>('http://localhost:4201/permissions' , {"permissions":["PUSH_NOTIFICATIONS","REPUBLISH","EDIT","INSITE","PUBLISH","CUSTOM_DOMAIN","RESET","SEO","STATS_TAB","BLOG"]})
-  // .subscribe(next => console.log(next));
-    
   }
 }

@@ -4,19 +4,7 @@ var request = require('request');
 
 export { app as routes};
 
-var globaldata = require('./globaldata.js');
-
-
-// export var parsedBody: any;
-
-
-
-
 // These are just placeholder routes
-
-
-
-
 app.get('/', function(req, res, next) {
     request({
       uri: 'https://api.duda.co/api/sites/multiscreen/templates',
@@ -36,65 +24,54 @@ app.post('/template', function(req, res, next) {
     { 
       authorization: 'Basic ZmJiYjBkOGM6bEZydkNsQzBMTFB2',
       'content-type': 'application/json' },
-    body:req.body,
+    body:{template_id:req.body.template_id},
     json: true
   }, function(err: any, response: any, body: any){
     parsedBody = body.site_name;
-    globaldata = response.body.site_name;
-    console.log(globaldata);
-    console.log(parsedBody);
+    request.post({
+      url:'https://api.duda.co/api/sites/multiscreen/'+parsedBody+'/collection/Asthetic/row', 
+      headers: 
+      { 
+        authorization: 'Basic ZmJiYjBkOGM6bEZydkNsQzBMTFB2',
+        'content-type': 'application/json' },
+      body:req.body.sitedata,
+      json: true
+  }, function(err: any, response: any, body: any){
+    request.post({
+      url:'https://api.duda.co/api/accounts/create', 
+  headers: 
+  { 
+    authorization: 'Basic ZmJiYjBkOGM6bEZydkNsQzBMTFB2',
+    'content-type': 'application/json' },
+  body:{"account_type":"CUSTOMER","account_name":req.body.email,"first_name":req.body.template_id,"last_name":"panth"},
+  json: true
+  }, function(err: any, response: any, body: any){
+    request.post({
+      url:'https://api.duda.co/api/accounts/'+req.body.email+'/sites/'+parsedBody+'/permissions', 
+      headers: 
+      { 
+        authorization: 'Basic ZmJiYjBkOGM6bEZydkNsQzBMTFB2',
+        'content-type': 'application/json' },
+      body:{"permissions":["EDIT","PUBLISH","REPUBLISH"]},
+      json: true
+  }, function(err: any, response: any, body: any){
+   
+    request({
+      uri: 'https://api.duda.co/api/accounts/sso/'+req.body.email+'/link',
+      'headers': {
+        'Authorization': 'Basic ZmJiYjBkOGM6bEZydkNsQzBMTFB2',
+        'Content-Type': 'application/json'
+      }
+    }).pipe(res);
+
+  })
+    
+})
+    
+})
     
 })
 
 });
 
-
-
-app.post('/collection', function(req, res, next) { 
- 
-  // console.log('this is data'+ globaldata);
-  // console.log('this is data'+ parsedBody);
-  console.log('this is the data', parsedBody);
-
-
-  request.post({
-    url:'https://api.duda.co/api/sites/multiscreen/'+globaldata+'/collection/Asthetic/row', 
-    headers: 
-    { 
-      authorization: 'Basic ZmJiYjBkOGM6bEZydkNsQzBMTFB2',
-      'content-type': 'application/json' },
-    body:req.body,
-    json: true
-}).pipe(res);
-});
-
-
-
-// app.post('/account', function(req, res, next) { 
- 
-//   console.log(alias);
-//   request.post({
-//     url:'https://api.duda.co/api/accounts/create', 
-//     headers: 
-//     { 
-//       authorization: 'Basic ZmJiYjBkOGM6bEZydkNsQzBMTFB2',
-//       'content-type': 'application/json' },
-//     body:req.body,
-//     json: true
-// }).pipe(res);
-// });
-
-// app.post('/permissions', function(req, res, next) { 
- 
-//   console.log(alias);
-//   request.post({
-//     url:'https://api.duda.co/api/accounts/account_name/sites/site_name/permissions', 
-//     headers: 
-//     { 
-//       authorization: 'Basic ZmJiYjBkOGM6bEZydkNsQzBMTFB2',
-//       'content-type': 'application/json' },
-//     body:req.body,
-//     json: true
-// }).pipe(res);
-// });
-
+//https://www.freecodecamp.org/news/use-nodemailer-to-send-emails-from-your-node-js-server/
