@@ -32,8 +32,6 @@ export class User {
   public gallery3!: String;
   public gallery4!: String;
   public resume!: String;
-  
-
 }
 @Component({
   selector: 'app-template',
@@ -185,7 +183,7 @@ switch (Number(classTime)) {
       break;
 }
 
-// let business_info = [];
+
 let bdata = {
   "location_data":{
     "emails":[
@@ -209,12 +207,8 @@ let bdata = {
 }
 
 console.log(JSON.stringify(bdata));
-
-
   this.http.post<any[]>('http://localhost:4201/template' , {template_id:temp_id, sitedata, email,fullName,bdata })
   .subscribe(next => console.log(next));
-  
-
     
   }
 }

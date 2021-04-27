@@ -80,6 +80,7 @@ app.post('/template', function(req, res, next) {
               refreshToken: '1//04cEogy5Jqx9rCgYIARAAGAQSNwF-L9IrpGfdmm5bBbnLl6gseuJWPgxM24_X0uiiQWJRvk11ySmZ7LNAQQp-pJWVviFb1o5w1Mo'
             }
           });
+          var website_url = 'https://msukonnect.responsivewebsitebuilder.io/site/'+parsedBody+'?preview=true';
 
           let mailOptions = {
             from: '"MSU Konnect 👻" <msuKonnect@gmail.com>', // sender address
@@ -92,6 +93,7 @@ app.post('/template', function(req, res, next) {
             "Make sure to save these details for future access."+ "<br>" + "<br>" + 
             "Login URL: " + '<a href="'+useremail+'">Login</a>'+ "<br>" + "<br>" + 
             "Login Email: "+ req.body.email + "<br>" + "<br>" + 
+            "Website URL: " + '<a href="'+website_url+'">Your Site </a>'+ "<br>" + "<br>" +
             "Note: The Login URL expires in 30 days, so make sure to access it and set your password before then." + "<br>" + "<br>" + 
             "Best,"+ "<br>" + "<br>" + 
             "MSU Konnect", // html body
@@ -127,8 +129,6 @@ app.post('/template', function(req, res, next) {
 })
 
 });
-
-
 
 //108026591913-em7to57u3ffhbdc3orcpvah53a85erh6.apps.googleusercontent.com
 //vT39PlQNYdyNzScXa8mwCgJD
