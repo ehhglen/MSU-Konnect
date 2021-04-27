@@ -1,13 +1,16 @@
 .slider {
     margin-left: auto;
     margin-right: auto;
-    height: 300px;
-    width: 1000px;
-    position: center;
+    height: 500px;
+    width: 1500px;
+    position: auto;
+    max-width: 1500px;
+    min-width: 200px;
 }
 
 .img-fitter {
-    height: 300px;
-    width: 1000px;
-    object-fit: fill;
+    height: 500px;
+    width: 1500px;
+    object-fit: auto;
+    position: auto;
 }

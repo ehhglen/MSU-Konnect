@@ -26,6 +26,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ImgsSliderComponent } from './imgs-slider/imgs-slider.component';
 import { SignupFormComponent } from './signup-form/signup-form.component';
+import { TeamComponent } from './team/team.component';
 
 
 
@@ -41,6 +42,7 @@ import { SignupFormComponent } from './signup-form/signup-form.component';
     TemplateComponent,
     ImgsSliderComponent,
     SignupFormComponent,
+    TeamComponent,
 
   ],
   imports: [

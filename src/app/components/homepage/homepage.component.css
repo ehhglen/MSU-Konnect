@@ -1,6 +1,153 @@
 .bg{
-    height: 90vh;
-    background-size: inherit;
-    background-position: 50% 0%;
-    background-color: rgb(206, 210, 210);
+    height: 100vh;
+    background-size: absolute;
+    background-position: 100% 100%;
+    background-color: rgb(132, 149, 202);
+
 }
+
+/* Container holding text */
+.container1 {
+  position: relative;
+}
+.text-block {
+  position: absolute;
+  bottom: 540px;
+  right: 500px;
+  background-color: rgb(132, 149, 202);
+  color: rgb(51, 94, 189);
+  padding-left: 400px;
+  padding-right: 200px;
+  font-size: 25px;
+}
+
+
+.container2 {
+  position: relative;
+}
+.text-blocks {
+  position: absolute;
+  bottom: 530px;
+  right: 500px;
+  background-color: rgb(132, 149, 202);
+  color: white;
+  padding-left: 200px;
+  padding-right: 20px;
+  font-size: 12px;
+}
+/* End */
+
+
+/* Container holding teams */
+.team6 {
+  border: 0px solid rgb(18, 43, 187);
+
+  width: 200px;
+  float: left;
+  background-color: rgb(132, 149, 202);
+}
+.img6 {
+ float: left;
+}
+.team66 {
+ float: left;
+}
+
+
+
+.team1 {
+  border: 0px solid rgb(18, 43, 187);
+  overflow: auto;
+  width: 200px;
+  height: 200;
+  background-color: rgb(132, 149, 202);
+}
+.img1 {
+ float: left;
+}
+.team11 {
+ float: left;
+}
+
+.team7 {
+  border: 0px solid rgb(18, 43, 187);
+
+  width: 200px;
+  float: left;
+  background-color: rgb(132, 149, 202);
+
+}
+.img7 {
+ float: left;
+}
+.team77 {
+ float: left;
+}
+
+
+
+
+.team5 {
+  border: 0px solid rgb(18, 43, 187);
+
+  width: 200px;
+  float: left;
+  background-color: rgb(132, 149, 202);
+}
+.img5 {
+ float: left;
+}
+.team55 {
+ float: left;
+}
+
+
+
+
+
+.team4 {
+  border: 0px solid rgb(18, 43, 187);
+
+  width: 200px;
+  float: left;
+  background-color: rgb(132, 149, 202);
+}
+.img4 {
+ float: left;
+}
+.team44 {
+ float: left;
+}
+
+
+
+.team2 {
+  border: 0px solid rgb(18, 43, 187);
+
+  width: 200px;
+  float: left;
+  background-color: rgb(132, 149, 202);
+}
+.img2 {
+ float: left;
+}
+.team22 {
+ float: left;
+}
+
+.team3 {
+  border: 0px solid rgb(18, 43, 187);
+
+  width: 200px;
+  float: left;
+  background-color: rgb(132, 149, 202);
+}
+.img3 {
+ float: left;
+}
+.team33 {
+ float: left;
+}
+
+/* end */
+
