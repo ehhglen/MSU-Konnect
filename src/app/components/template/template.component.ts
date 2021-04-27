@@ -140,8 +140,81 @@ export class TemplateComponent implements OnInit {
 sitedata.push(data);
 
 
-  this.http.post<any[]>('http://localhost:4201/template' , {template_id:temp_id, sitedata, email,fullName })
-  .subscribe(next => console.log(next));  
+let days = [];
+switch (Number(classDay)) {
+    case 0:
+        days.push("MON","TUE","WED","THU","FRI")
+        
+        break;
+    case 1:
+        days.push("MON","TUE","WED","THU")
+        
+        break;
+    case 2:
+        days.push("MON","TUE")
+        
+        break;
+    case 3:
+        days.push("WED","THU")
+        
+        break;
+}
+
+let openhour = "0";
+let closehour = "1";
+switch (Number(classTime)) {
+  case 0:
+      openhour = "06:00";
+      closehour = "12:00";
+      break;
+  case 1:
+      openhour = "06:00";
+      closehour = "17:00";
+      break;
+  case 2:
+      openhour = "10:00";
+      closehour = "12:00";
+      break;
+  case 3:
+      openhour = "12:00";
+      closehour = "20:00";
+      break;
+  case 4:
+      openhour = "10:00";
+      closehour = "20:00";
+      break;
+}
+
+// let business_info = [];
+let bdata = {
+  "location_data":{
+    "emails":[
+      {
+        "emailAddress":email,
+        "label":"Email"
+      }
+    ],
+    "business_hours":[
+      {
+        "days":days,
+        "open":openhour,
+        "close":closehour
+      }
+    ]
+  },
   
+  "business_data":{
+    "name":fullName
+  }
+}
+
+console.log(JSON.stringify(bdata));
+
+
+  this.http.post<any[]>('http://localhost:4201/template' , {template_id:temp_id, sitedata, email,fullName,bdata })
+  .subscribe(next => console.log(next));
+  
+
+    
   }
 }
