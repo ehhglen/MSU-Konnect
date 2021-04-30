@@ -5,6 +5,9 @@
     background-color: rgb(132, 149, 202);
 
 }
+.back{
+  background-color: rgb(132, 149, 202);
+}
 
 /* Container holding text */
 .container1 {
@@ -12,7 +15,7 @@
 }
 .text-block {
   position: absolute;
-  bottom: 540px;
+  bottom: 340px;
   right: 500px;
   background-color: rgb(132, 149, 202);
   color: rgb(51, 94, 189);
@@ -27,7 +30,7 @@
 }
 .text-blocks {
   position: absolute;
-  bottom: 530px;
+  bottom: 330px;
   right: 500px;
   background-color: rgb(132, 149, 202);
   color: white;
@@ -41,8 +44,8 @@
 /* Container holding teams */
 .team6 {
   border: 0px solid rgb(18, 43, 187);
-
   width: 200px;
+  height: auto;
   float: left;
   background-color: rgb(132, 149, 202);
 }
