@@ -1,3 +1,15 @@
 .container{
-  margin: unset;  
+  margin: unset;
+}
+
+.webpage {
+  position: auto;
+}
+
+
+
+
+/* Safari */
+:-webkit-full-screen {
+  background-color: yellow;
 }

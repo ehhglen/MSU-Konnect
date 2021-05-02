@@ -1,10 +1,16 @@
 <div class = "bg">
-<div class= "header">
-<p style = "font-size: larger; color: black;"> New to MSU-Konnect? Sign up now to create your personalized Website!</p>
-</div>
-<div class= "form">
+
+  <div class='header'>
+  <h1>Please Sign Up!</h1>
+    <p style='font-size: small'>Already have a webpage? <a href= '/login'>Log In!</a></p>
+  </div>
+
+  <div class ="spacer"></div>
+
+  <div class= "form">
 <form  [formGroup]= "signupForm" (ngSubmit)= "signup()" noValidate >
-  
+  <div class ="spacer"></div>
+
   <mat-form-field>
     <mat-label>First Name</mat-label>
     <input matInput placeholder="Ex. Sammy" formControlName="name">

@@ -14,16 +14,16 @@ app.get('/', function(req, res, next) {
         'Content-Type': 'application/json'
       }
     }).pipe(res);
-    
+
 });
 
 var parsedBody: any;
 var useremail: any;
-app.post('/template', function(req, res, next) { 
+app.post('/template', function(req, res, next) {
   request.post({
-    url:'https://api.duda.co/api/sites/multiscreen/create', 
-    headers: 
-    { 
+    url:'https://api.duda.co/api/sites/multiscreen/create',
+    headers:
+    {
       authorization: 'Basic ZmJiYjBkOGM6bEZydkNsQzBMTFB2',
       'content-type': 'application/json' },
     body:{template_id:req.body.template_id},
@@ -31,37 +31,37 @@ app.post('/template', function(req, res, next) {
   }, function(err: any, response: any, body: any){
     parsedBody = body.site_name;
     request.post({
-      url:'https://api.duda.co/api/sites/multiscreen/'+parsedBody+'/collection/Asthetic/row', 
-      headers: 
-      { 
+      url:'https://api.duda.co/api/sites/multiscreen/'+parsedBody+'/collection/Asthetic/row',
+      headers:
+      {
         authorization: 'Basic ZmJiYjBkOGM6bEZydkNsQzBMTFB2',
         'content-type': 'application/json' },
       body:req.body.sitedata,
       json: true
   }, function(err: any, response: any, body: any){
     request.post({
-      url:'https://api.duda.co/api/accounts/create', 
-  headers: 
-  { 
+      url:'https://api.duda.co/api/accounts/create',
+  headers:
+  {
     authorization: 'Basic ZmJiYjBkOGM6bEZydkNsQzBMTFB2',
     'content-type': 'application/json' },
   body:{"account_type":"CUSTOMER","account_name":req.body.email,"first_name":req.body.fullName,"last_name":""},
   json: true
   }, function(err: any, response: any, body: any){
     request.post({
-      url:'https://api.duda.co/api/accounts/'+req.body.email+'/sites/'+parsedBody+'/permissions', 
-      headers: 
-      { 
+      url:'https://api.duda.co/api/accounts/'+req.body.email+'/sites/'+parsedBody+'/permissions',
+      headers:
+      {
         authorization: 'Basic ZmJiYjBkOGM6bEZydkNsQzBMTFB2',
         'content-type': 'application/json' },
       body:{"permissions":["EDIT","PUBLISH","REPUBLISH"]},
       json: true
   }, function(err: any, response: any, body: any){
-   
+
     request.get({
       url: 'https://api.duda.co/api/accounts/sso/'+req.body.email+'/link',
-      headers: 
-      { 
+      headers:
+      {
         authorization: 'Basic ZmJiYjBkOGM6bEZydkNsQzBMTFB2',
         'content-type': 'application/json' },
       body:{"permissions":["EDIT","PUBLISH","REPUBLISH"]},
@@ -80,22 +80,22 @@ app.post('/template', function(req, res, next) {
               refreshToken: '1//04cEogy5Jqx9rCgYIARAAGAQSNwF-L9IrpGfdmm5bBbnLl6gseuJWPgxM24_X0uiiQWJRvk11ySmZ7LNAQQp-pJWVviFb1o5w1Mo'
             }
           });
-          var website_url = 'https://msukonnect.responsivewebsitebuilder.io/site/'+parsedBody+'?preview=true';
+          var website_url = 'https://ppanth2481e64a.responsivewebsitebuilder.io/preview/'+parsedBody;
 
           let mailOptions = {
             from: '"MSU Konnect 👻" <msuKonnect@gmail.com>', // sender address
             to: req.body.email, // list of receivers
             subject: "Here's your site", // Subject line
             text: "Hello ✔", // plain text body
-            html: "Dear "+ req.body.fullName + ","+"<br>" + "<br>" + 
-            "Congratulations. You can now review your new site!"+ "<br>" + "<br>" + 
-            "To access it, click the Login URL below and register using the Login email."+ "<br>" + "<br>" + 
-            "Make sure to save these details for future access."+ "<br>" + "<br>" + 
-            "Login URL: " + '<a href="'+useremail+'">Login</a>'+ "<br>" + "<br>" + 
-            "Login Email: "+ req.body.email + "<br>" + "<br>" + 
+            html: "Dear "+ req.body.fullName + ","+"<br>" + "<br>" +
+            "Congratulations. You can now review your new site!"+ "<br>" + "<br>" +
+            "To access it, click the Login URL below and register using the Login email."+ "<br>" + "<br>" +
+            "Make sure to save these details for future access."+ "<br>" + "<br>" +
+            "Login URL: " + '<a href="'+useremail+'">Login</a>'+ "<br>" + "<br>" +
+            "Login Email: "+ req.body.email + "<br>" + "<br>" +
             "Website URL: " + '<a href="'+website_url+'">Your Site </a>'+ "<br>" + "<br>" +
-            "Note: The Login URL expires in 30 days, so make sure to access it and set your password before then." + "<br>" + "<br>" + 
-            "Best,"+ "<br>" + "<br>" + 
+            "Note: The Login URL expires in 30 days, so make sure to access it and set your password before then." + "<br>" + "<br>" +
+            "Best,"+ "<br>" + "<br>" +
             "MSU Konnect", // html body
           };
 
@@ -109,9 +109,9 @@ app.post('/template', function(req, res, next) {
           });
 
           request.post({
-            url:'https://api.duda.co/api/sites/multiscreen/'+parsedBody+'/content', 
-            headers: 
-            { 
+            url:'https://api.duda.co/api/sites/multiscreen/'+parsedBody+'/content',
+            headers:
+            {
               authorization: 'Basic ZmJiYjBkOGM6bEZydkNsQzBMTFB2',
               'content-type': 'application/json' },
             body:req.body.bdata,
@@ -121,11 +121,11 @@ app.post('/template', function(req, res, next) {
     })
 
   })
-    
+
 })
-    
+
 })
-    
+
 })
 
 });
