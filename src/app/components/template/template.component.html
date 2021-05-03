@@ -141,7 +141,7 @@
       </div>
 
       <div class="form-group">
-        <label for="skill02Pic">Skill 2 Picture (link) </label>
+        <label for="skill02Pic">Skill 2 Video (link) </label>
         <input type="text" class="form-control" id="skill02Pic" name = "skill02Pic" [(ngModel)]="model.skill02Pic" placeholder="Please Provide an image link" #skill02Pic="ngModel"
         [ngClass]= "{ 'is-invalid': userForm.submitted && skill02Pic.invalid }" required>
         <div class = "invalid-feedback" *ngIf="userForm.submitted && skill01Pic.invalid">
