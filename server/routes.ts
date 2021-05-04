@@ -73,11 +73,11 @@ app.post('/template', function(req, res, next) {
             service: 'gmail',
             auth: {
               type: 'OAuth2',
-              user: 'msuKonnect@gmail.com',
+              user: 'msukonnectdenver@gmail.com',
               pass: 'Makebigbucks1738',
-              clientId: '108026591913-em7to57u3ffhbdc3orcpvah53a85erh6.apps.googleusercontent.com',
-              clientSecret: 'vT39PlQNYdyNzScXa8mwCgJD',
-              refreshToken: '1//04cEogy5Jqx9rCgYIARAAGAQSNwF-L9IrpGfdmm5bBbnLl6gseuJWPgxM24_X0uiiQWJRvk11ySmZ7LNAQQp-pJWVviFb1o5w1Mo'
+              clientId: '565599873761-9lh6ee0jkqblhlp0cqqfisbmc0bfhlh5.apps.googleusercontent.com',
+              clientSecret: 'LaZARr5h_gP0gWR0WxsJTlmR',
+              refreshToken: '1//04v8IDcZ2cEnuCgYIARAAGAQSNwF-L9IrJ5pCrTjoAOrNWObjXF2zRJFLn8QgFVAl3NMFbbjLb9sJUCa92_H0whtqZJG4Bkn0Kgo'
             }
           });
           var website_url = 'https://ppanth2481e64a.responsivewebsitebuilder.io/preview/'+parsedBody;
